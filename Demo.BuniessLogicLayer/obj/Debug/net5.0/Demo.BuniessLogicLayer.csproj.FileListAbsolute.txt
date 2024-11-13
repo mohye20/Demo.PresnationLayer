@@ -13,3 +13,4 @@ C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.BuniessLogicLayer\obj\Debu
 C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.BuniessLogicLayer\obj\Debug\net5.0\refint\Demo.BuniessLogicLayer.dll
 C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.BuniessLogicLayer\obj\Debug\net5.0\Demo.BuniessLogicLayer.pdb
 C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.BuniessLogicLayer\obj\Debug\net5.0\ref\Demo.BuniessLogicLayer.dll
+C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.BuniessLogicLayer\obj\Debug\net5.0\Demo.BuniessLogicLayer.sourcelink.json

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Demo.DataAcessLayer.Models
 {
-    public class Departmnet
+    public class Department
     {
         public int Id { get; set; }
 

@@ -41,7 +41,7 @@ namespace Demo.PresnationLayer.Controllers
             return View(departmnet);
         }
 
-        public IActionResult Details(int? id)
+        public IActionResult Details(int? id , string ViewName = "Details")
         {
         
 
@@ -57,29 +57,37 @@ namespace Demo.PresnationLayer.Controllers
                 return NotFound();
             }
 
-            return View(department);
+            return View(ViewName, department);
         }
 
 
         [HttpGet]
         public IActionResult Edit(int? id)
         {
-            if(id is null)
-            {
-                return BadRequest();
-            }
+            //if(id is null)
+            //{
+            //    return BadRequest();
+            //}
 
-            var department = _departmentRepos.GetById(id.Value);
-                if(department is null)
-            {
-                return NotFound();
-            }
-            return View(department);
+            //var department = _departmentRepos.GetById(id.Value);
+            //    if(department is null)
+            //{
+            //    return NotFound();
+            //}
+            //return View(department);
+
+            return Details(id, "Edit");
 
         }
 
         [HttpPost]
-        public IActionResult Edit(Department department) { 
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(Department department ,[FromRoute] int id) { 
+
+            if(id != department.Id)
+            {
+                return BadRequest();
+            }
             if(ModelState.IsValid)
             {
                 try
@@ -89,7 +97,7 @@ namespace Demo.PresnationLayer.Controllers
                 }
                 catch(Exception Ex)
                 {
-
+                    ModelState.AddModelError(string.Empty, Ex.Message);
                 }
             }
 

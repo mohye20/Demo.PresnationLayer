@@ -10,3 +10,4 @@ C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.DataAcessLayer\obj\Debug\n
 C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.DataAcessLayer\obj\Debug\net5.0\refint\Demo.DataAcessLayer.dll
 C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.DataAcessLayer\obj\Debug\net5.0\Demo.DataAcessLayer.pdb
 C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.DataAcessLayer\obj\Debug\net5.0\ref\Demo.DataAcessLayer.dll
+C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.DataAcessLayer\obj\Debug\net5.0\Demo.DataAcessLayer.sourcelink.json
