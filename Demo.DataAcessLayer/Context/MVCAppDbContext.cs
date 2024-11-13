@@ -18,6 +18,6 @@ namespace Demo.DataAcessLayer.Context
         //=>    optionsBuilder.UseSqlServer("Server = . ; Database = MVCAppDb ; trusted_Connection = true ");
 
 
-        public DbSet<Departmnet> Departmnets { get; set; }
+        public DbSet<Department> Departmnets { get; set; }
     }
 }

@@ -9,14 +9,14 @@ namespace Demo.BuniessLogicLayer.Interfaces
 {
     public interface IDepartmentRepos
     {
-        IEnumerable<Departmnet> GetAll();
+        IEnumerable<Department> GetAll();
 
-        Departmnet GetById(int id);
+        Department GetById(int id);
 
-        int Add(Departmnet departmnet);
+        int Add(Department departmnet);
 
-        int Update(Departmnet departmnet);
+        int Update(Department departmnet);
 
-        int Delete(Departmnet departmnet);
+        int Delete(Department departmnet);
     }
 }

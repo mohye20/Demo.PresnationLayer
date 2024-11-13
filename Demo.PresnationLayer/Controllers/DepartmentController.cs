@@ -4,6 +4,7 @@ using Demo.BuniessLogicLayer.Repositories;
 using Demo.DataAcessLayer.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System;
 
 namespace Demo.PresnationLayer.Controllers
 {
@@ -28,7 +29,7 @@ namespace Demo.PresnationLayer.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Departmnet departmnet)
+        public IActionResult Create(Department departmnet)
         {
             if (ModelState.IsValid) // server side validation 
             {
@@ -75,6 +76,24 @@ namespace Demo.PresnationLayer.Controllers
             }
             return View(department);
 
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Department department) { 
+            if(ModelState.IsValid)
+            {
+                try
+                {
+                    _departmentRepos.Update(department);
+                    return RedirectToAction(nameof(Index));
+                }
+                catch(Exception Ex)
+                {
+
+                }
+            }
+
+            return View(department);
         }
     }
 }

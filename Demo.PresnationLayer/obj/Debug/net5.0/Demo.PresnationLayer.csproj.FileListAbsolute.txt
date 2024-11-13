@@ -441,3 +441,4 @@ C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\bin\Debug\
 C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\obj\Debug\net5.0\Razor\Views\Department\Index.cshtml.g.cs
 C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\obj\Debug\net5.0\Razor\Views\Department\Create.cshtml.g.cs
 C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\obj\Debug\net5.0\Razor\Views\Department\Details.cshtml.g.cs
+C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\obj\Debug\net5.0\Demo.PresnationLayer.sourcelink.json

@@ -5,9 +5,14 @@ VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo.PresnationLayer", "Demo.PresnationLayer\Demo.PresnationLayer.csproj", "{A578E539-E53E-48B9-8FC3-87B0F01C1FAC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.DataAcessLayer", "Demo.DataAcessLayer\Demo.DataAcessLayer.csproj", "{6C0A37C3-1BC6-416E-932A-2E01796DD25F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo.DataAcessLayer", "Demo.DataAcessLayer\Demo.DataAcessLayer.csproj", "{6C0A37C3-1BC6-416E-932A-2E01796DD25F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.BuniessLogicLayer", "Demo.BuniessLogicLayer\Demo.BuniessLogicLayer.csproj", "{E3F98F25-37D4-4A42-8499-59219CCA9D58}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo.BuniessLogicLayer", "Demo.BuniessLogicLayer\Demo.BuniessLogicLayer.csproj", "{E3F98F25-37D4-4A42-8499-59219CCA9D58}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A8C06CC3-DE99-4DCB-8069-3D57E5DC3EDE}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

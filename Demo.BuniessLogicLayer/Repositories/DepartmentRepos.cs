@@ -16,26 +16,26 @@ namespace Demo.BuniessLogicLayer.Repositories
             _dbContext = dbContext;
         }
 
-        public int Add(Departmnet departmnet)
+        public int Add(Department departmnet)
         {
             _dbContext.Add(departmnet);
 
             return _dbContext.SaveChanges();
         }
 
-        public int Delete(Departmnet departmnet)
+        public int Delete(Department departmnet)
         {
             _dbContext.Remove(departmnet);
 
             return _dbContext.SaveChanges();
         }
 
-        public IEnumerable<Departmnet> GetAll()
+        public IEnumerable<Department> GetAll()
         {
             return _dbContext.Departmnets.ToList();
         }
 
-        public Departmnet GetById(int id)
+        public Department GetById(int id)
         {
             //var Department = _dbContext.Departmnets.Local.Where(D => D.Id == id).FirstOrDefault();
             //if (Department is null) {
@@ -48,7 +48,7 @@ namespace Demo.BuniessLogicLayer.Repositories
              
         }
 
-        public int Update(Departmnet departmnet)
+        public int Update(Department departmnet)
         {
             _dbContext.Update(departmnet);
             return _dbContext.SaveChanges();
