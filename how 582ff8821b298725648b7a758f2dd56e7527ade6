@@ -1,0 +1,432 @@
+[33mcommit 582ff8821b298725648b7a758f2dd56e7527ade6[m
+Author: mohye <mohye20@gmail.com>
+Date:   Wed Nov 13 10:12:17 2024 +0200
+
+    test01
+
+[1mdiff --git a/Demo.BuniessLogicLayer/Interfaces/IDepartmentRepos.cs b/Demo.BuniessLogicLayer/Interfaces/IDepartmentRepos.cs[m
+[1mindex abf0bec..91ccd6d 100644[m
+[1m--- a/Demo.BuniessLogicLayer/Interfaces/IDepartmentRepos.cs[m
+[1m+++ b/Demo.BuniessLogicLayer/Interfaces/IDepartmentRepos.cs[m
+[36m@@ -9,14 +9,14 @@[m [mnamespace Demo.BuniessLogicLayer.Interfaces[m
+ {[m
+     public interface IDepartmentRepos[m
+     {[m
+[31m-        IEnumerable<Departmnet> GetAll();[m
+[32m+[m[32m        IEnumerable<Department> GetAll();[m
+ [m
+[31m-        Departmnet GetById(int id);[m
+[32m+[m[32m        Department GetById(int id);[m
+ [m
+[31m-        int Add(Departmnet departmnet);[m
+[32m+[m[32m        int Add(Department departmnet);[m
+ [m
+[31m-        int Update(Departmnet departmnet);[m
+[32m+[m[32m        int Update(Department departmnet);[m
+ [m
+[31m-        int Delete(Departmnet departmnet);[m
+[32m+[m[32m        int Delete(Department departmnet);[m
+     }[m
+ }[m
+\ No newline at end of file[m
+[1mdiff --git a/Demo.BuniessLogicLayer/Repositories/DepartmentRepos.cs b/Demo.BuniessLogicLayer/Repositories/DepartmentRepos.cs[m
+[1mindex 3e9cfaa..8b7c9e8 100644[m
+[1m--- a/Demo.BuniessLogicLayer/Repositories/DepartmentRepos.cs[m
+[1m+++ b/Demo.BuniessLogicLayer/Repositories/DepartmentRepos.cs[m
+[36m@@ -16,26 +16,26 @@[m [mnamespace Demo.BuniessLogicLayer.Repositories[m
+             _dbContext = dbContext;[m
+         }[m
+ [m
+[31m-        public int Add(Departmnet departmnet)[m
+[32m+[m[32m        public int Add(Department departmnet)[m
+         {[m
+             _dbContext.Add(departmnet);[m
+ [m
+             return _dbContext.SaveChanges();[m
+         }[m
+ [m
+[31m-        public int Delete(Departmnet departmnet)[m
+[32m+[m[32m        public int Delete(Department departmnet)[m
+         {[m
+             _dbContext.Remove(departmnet);[m
+ [m
+             return _dbContext.SaveChanges();[m
+         }[m
+ [m
+[31m-        public IEnumerable<Departmnet> GetAll()[m
+[32m+[m[32m        public IEnumerable<Department> GetAll()[m
+         {[m
+             return _dbContext.Departmnets.ToList();[m
+         }[m
+ [m
+[31m-        public Departmnet GetById(int id)[m
+[32m+[m[32m        public Department GetById(int id)[m
+         {[m
+             //var Department = _dbContext.Departmnets.Local.Where(D => D.Id == id).FirstOrDefault();[m
+             //if (Department is null) {[m
+[36m@@ -48,7 +48,7 @@[m [mnamespace Demo.BuniessLogicLayer.Repositories[m
+              [m
+         }[m
+ [m
+[31m-        public int Update(Departmnet departmnet)[m
+[32m+[m[32m        public int Update(Department departmnet)[m
+         {[m
+             _dbContext.Update(departmnet);[m
+             return _dbContext.SaveChanges();[m
+[1mdiff --git a/Demo.DataAcessLayer/Context/MVCAppDbContext.cs b/Demo.DataAcessLayer/Context/MVCAppDbContext.cs[m
+[1mindex 77c2f31..0892a5d 100644[m
+[1m--- a/Demo.DataAcessLayer/Context/MVCAppDbContext.cs[m
+[1m+++ b/Demo.DataAcessLayer/Context/MVCAppDbContext.cs[m
+[36m@@ -18,6 +18,6 @@[m [mnamespace Demo.DataAcessLayer.Context[m
+         //=>    optionsBuilder.UseSqlServer("Server = . ; Database = MVCAppDb ; trusted_Connection = true ");[m
+ [m
+ [m
+[31m-        public DbSet<Departmnet> Departmnets { get; set; }[m
+[32m+[m[32m        public DbSet<Department> Departmnets { get; set; }[m
+     }[m
+ }[m
+[1mdiff --git a/Demo.DataAcessLayer/Models/Departmnet.cs b/Demo.DataAcessLayer/Models/Department.cs[m
+[1msimilarity index 100%[m
+[1mrename from Demo.DataAcessLayer/Models/Departmnet.cs[m
+[1mrename to Demo.DataAcessLayer/Models/Department.cs[m
+[1mdiff --git a/Demo.DataAcessLayer/obj/Debug/net5.0/Demo.DataAcessLayer.AssemblyInfo.cs b/Demo.DataAcessLayer/obj/Debug/net5.0/Demo.DataAcessLayer.AssemblyInfo.cs[m
+[1mindex 2053698..44d2eef 100644[m
+[1m--- a/Demo.DataAcessLayer/obj/Debug/net5.0/Demo.DataAcessLayer.AssemblyInfo.cs[m
+[1m+++ b/Demo.DataAcessLayer/obj/Debug/net5.0/Demo.DataAcessLayer.AssemblyInfo.cs[m
+[36m@@ -14,7 +14,7 @@[m [musing System.Reflection;[m
+ [assembly: System.Reflection.AssemblyCompanyAttribute("Demo.DataAcessLayer")][m
+ [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")][m
+ [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")][m
+[31m-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")][m
+[32m+[m[32m[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8ecfc3c10ea824d1cfd59e5c15e1aefa00e8878f")][m
+ [assembly: System.Reflection.AssemblyProductAttribute("Demo.DataAcessLayer")][m
+ [assembly: System.Reflection.AssemblyTitleAttribute("Demo.DataAcessLayer")][m
+ [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")][m
+[1mdiff --git a/Demo.DataAcessLayer/obj/Debug/net5.0/Demo.DataAcessLayer.AssemblyInfoInputs.cache b/Demo.DataAcessLayer/obj/Debug/net5.0/Demo.DataAcessLayer.AssemblyInfoInputs.cache[m
+[1mindex 14ca835..1ab1fa5 100644[m
+[1m--- a/Demo.DataAcessLayer/obj/Debug/net5.0/Demo.DataAcessLayer.AssemblyInfoInputs.cache[m
+[1m+++ b/Demo.DataAcessLayer/obj/Debug/net5.0/Demo.DataAcessLayer.AssemblyInfoInputs.cache[m
+[36m@@ -1 +1 @@[m
+[31m-1501b1e28c7d84cc4354701b24a2f6cc2c794fd28a9bb709b7bbfd4b70f78afd[m
+[32m+[m[32mef3a894183c5bfa079d620a076ab234f00f23de318aece1a1eea83340f69d955[m
+[1mdiff --git a/Demo.PresnationLayer.sln b/Demo.PresnationLayer.sln[m
+[1mindex deb7aca..4a33223 100644[m
+[1m--- a/Demo.PresnationLayer.sln[m
+[1m+++ b/Demo.PresnationLayer.sln[m
+[36m@@ -5,9 +5,14 @@[m [mVisualStudioVersion = 17.11.35327.3[m
+ MinimumVisualStudioVersion = 10.0.40219.1[m
+ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo.PresnationLayer", "Demo.PresnationLayer\Demo.PresnationLayer.csproj", "{A578E539-E53E-48B9-8FC3-87B0F01C1FAC}"[m
+ EndProject[m
+[31m-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.DataAcessLayer", "Demo.DataAcessLayer\Demo.DataAcessLayer.csproj", "{6C0A37C3-1BC6-416E-932A-2E01796DD25F}"[m
+[32m+[m[32mProject("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo.DataAcessLayer", "Demo.DataAcessLayer\Demo.DataAcessLayer.csproj", "{6C0A37C3-1BC6-416E-932A-2E01796DD25F}"[m
+ EndProject[m
+[31m-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.BuniessLogicLayer", "Demo.BuniessLogicLayer\Demo.BuniessLogicLayer.csproj", "{E3F98F25-37D4-4A42-8499-59219CCA9D58}"[m
+[32m+[m[32mProject("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo.BuniessLogicLayer", "Demo.BuniessLogicLayer\Demo.BuniessLogicLayer.csproj", "{E3F98F25-37D4-4A42-8499-59219CCA9D58}"[m
+[32m+[m[32mEndProject[m
+[32m+[m[32mProject("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A8C06CC3-DE99-4DCB-8069-3D57E5DC3EDE}"[m
+[32m+[m	[32mProjectSection(SolutionItems) = preProject[m
+[32m+[m		[32m.gitignore = .gitignore[m
+[32m+[m	[32mEndProjectSection[m
+ EndProject[m
+ Global[m
+ 	GlobalSection(SolutionConfigurationPlatforms) = preSolution[m
+[1mdiff --git a/Demo.PresnationLayer/Controllers/DepartmentController.cs b/Demo.PresnationLayer/Controllers/DepartmentController.cs[m
+[1mindex b28197f..18afeb7 100644[m
+[1m--- a/Demo.PresnationLayer/Controllers/DepartmentController.cs[m
+[1m+++ b/Demo.PresnationLayer/Controllers/DepartmentController.cs[m
+[36m@@ -4,6 +4,7 @@[m [musing Demo.BuniessLogicLayer.Repositories;[m
+ using Demo.DataAcessLayer.Models;[m
+ using Microsoft.AspNetCore.Mvc;[m
+ using Microsoft.EntityFrameworkCore.Metadata.Internal;[m
+[32m+[m[32musing System;[m
+ [m
+ namespace Demo.PresnationLayer.Controllers[m
+ {[m
+[36m@@ -28,7 +29,7 @@[m [mnamespace Demo.PresnationLayer.Controllers[m
+         }[m
+ [m
+         [HttpPost][m
+[31m-        public IActionResult Create(Departmnet departmnet)[m
+[32m+[m[32m        public IActionResult Create(Department departmnet)[m
+         {[m
+             if (ModelState.IsValid) // server side validation [m
+             {[m
+[36m@@ -76,5 +77,23 @@[m [mnamespace Demo.PresnationLayer.Controllers[m
+             return View(department);[m
+ [m
+         }[m
+[32m+[m
+[32m+[m[32m        [HttpPost][m
+[32m+[m[32m        public IActionResult Edit(Department department) {[m[41m [m
+[32m+[m[32m            if(ModelState.IsValid)[m
+[32m+[m[32m            {[m
+[32m+[m[32m                try[m
+[32m+[m[32m                {[m
+[32m+[m[32m                    _departmentRepos.Update(department);[m
+[32m+[m[32m                    return RedirectToAction(nameof(Index));[m
+[32m+[m[32m                }[m
+[32m+[m[32m                catch(Exception Ex)[m
+[32m+[m[32m                {[m
+[32m+[m
+[32m+[m[32m                }[m
+[32m+[m[32m            }[m
+[32m+[m
+[32m+[m[32m            return View(department);[m
+[32m+[m[32m        }[m
+     }[m
+ }[m
+[1mdiff --git a/Demo.PresnationLayer/Views/Department/Create.cshtml b/Demo.PresnationLayer/Views/Department/Create.cshtml[m
+[1mindex f5ac957..d84d2c4 100644[m
+[1m--- a/Demo.PresnationLayer/Views/Department/Create.cshtml[m
+[1m+++ b/Demo.PresnationLayer/Views/Department/Create.cshtml[m
+[36m@@ -1,4 +1,4 @@[m
+[31m-﻿@model Departmnet[m
+[32m+[m[32m﻿@model Department[m
+ @{[m
+     ViewData["Title"] = "Create";[m
+ }[m
+[1mdiff --git a/Demo.PresnationLayer/Views/Department/Details.cshtml b/Demo.PresnationLayer/Views/Department/Details.cshtml[m
+[1mindex 121bdde..769f8fb 100644[m
+[1m--- a/Demo.PresnationLayer/Views/Department/Details.cshtml[m
+[1m+++ b/Demo.PresnationLayer/Views/Department/Details.cshtml[m
+[36m@@ -1,5 +1,5 @@[m
+ ﻿[m
+[31m-@model Departmnet[m
+[32m+[m[32m@model Department[m
+ [m
+ @{[m
+     ViewData["Title"] = "Details";[m
+[1mdiff --git a/Demo.PresnationLayer/Views/Department/Edit.cshtml b/Demo.PresnationLayer/Views/Department/Edit.cshtml[m
+[1mnew file mode 100644[m
+[1mindex 0000000..f32121d[m
+[1m--- /dev/null[m
+[1m+++ b/Demo.PresnationLayer/Views/Department/Edit.cshtml[m
+[36m@@ -0,0 +1,37 @@[m
+[32m+[m[32m﻿@model Department[m
+[32m+[m[32m@{[m
+[32m+[m[32m    ViewData["Title"] = "Edit";[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m<h1>Edit @Model.Name</h1>[m
+[32m+[m
+[32m+[m
+[32m+[m
+[32m+[m
+[32m+[m[32m<form asp-action="Edit">[m
+[32m+[m[32m    <div class="form-group">[m
+[32m+[m[32m        <label class="col-form-label" asp-for="Code"></label>[m
+[32m+[m[32m        <input class="form-control" asp-for="Code"/>[m
+[32m+[m[32m        <span asp-validation-for="Code" class="text-danger"></span>[m
+[32m+[m[32m    </div>[m
+[32m+[m
+[32m+[m
+[32m+[m[32m    <div class="form-group">[m
+[32m+[m[32m        <label class="col-form-label" asp-for="Name"></label>[m
+[32m+[m[32m        <input class="form-control" asp-for="Name" />[m
+[32m+[m[32m        <span asp-validation-for="Name" class="text-danger"></span>[m
+[32m+[m[32m    </div>[m
+[32m+[m
+[32m+[m
+[32m+[m
+[32m+[m[32m    <div class="form-group">[m
+[32m+[m[32m        <label class="col-form-label" asp-for="DateOfCreation"></label>[m
+[32m+[m[32m        <input class="form-control" asp-for="DateOfCreation" />[m
+[32m+[m[32m        <span asp-validation-for="DateOfCreation" class="text-danger"></span>[m
+[32m+[m[32m    </div>[m
+[32m+[m
+[32m+[m[32m    <input  type="submit" value="Save" class="btn-primary"/>[m
+[32m+[m[32m    <a asp-action="Index" class="btn btn-light">Back To List</a>[m
+[32m+[m[32m</form>[m
+[32m+[m
+[32m+[m
+[1mdiff --git a/Demo.PresnationLayer/Views/Department/Index.cshtml b/Demo.PresnationLayer/Views/Department/Index.cshtml[m
+[1mindex 7fa923d..aa1b950 100644[m
+[1m--- a/Demo.PresnationLayer/Views/Department/Index.cshtml[m
+[1m+++ b/Demo.PresnationLayer/Views/Department/Index.cshtml[m
+[36m@@ -1,5 +1,5 @@[m
+ ﻿[m
+[31m-@model IEnumerable<Departmnet>[m
+[32m+[m[32m@model IEnumerable<Department>[m
+ @{[m
+     ViewData["Title"] = "All Departments";[m
+ }[m
+[1mdiff --git a/Demo.PresnationLayer/bin/Debug/net5.0/Demo.PresnationLayer.Views.dll b/Demo.PresnationLayer/bin/Debug/net5.0/Demo.PresnationLayer.Views.dll[m
+[1mindex d09729f..7de9ff7 100644[m
+Binary files a/Demo.PresnationLayer/bin/Debug/net5.0/Demo.PresnationLayer.Views.dll and b/Demo.PresnationLayer/bin/Debug/net5.0/Demo.PresnationLayer.Views.dll differ
+[1mdiff --git a/Demo.PresnationLayer/bin/Debug/net5.0/Demo.PresnationLayer.Views.pdb b/Demo.PresnationLayer/bin/Debug/net5.0/Demo.PresnationLayer.Views.pdb[m
+[1mindex ac86d7d..8551afa 100644[m
+Binary files a/Demo.PresnationLayer/bin/Debug/net5.0/Demo.PresnationLayer.Views.pdb and b/Demo.PresnationLayer/bin/Debug/net5.0/Demo.PresnationLayer.Views.pdb differ
+[1mdiff --git a/Demo.PresnationLayer/bin/Debug/net5.0/Demo.PresnationLayer.dll b/Demo.PresnationLayer/bin/Debug/net5.0/Demo.PresnationLayer.dll[m
+[1mindex a277451..2e3b379 100644[m
+Binary files a/Demo.PresnationLayer/bin/Debug/net5.0/Demo.PresnationLayer.dll and b/Demo.PresnationLayer/bin/Debug/net5.0/Demo.PresnationLayer.dll differ
+[1mdiff --git a/Demo.PresnationLayer/bin/Debug/net5.0/Demo.PresnationLayer.exe b/Demo.PresnationLayer/bin/Debug/net5.0/Demo.PresnationLayer.exe[m
+[1mindex 1ec8ffa..e075fb9 100644[m
+Binary files a/Demo.PresnationLayer/bin/Debug/net5.0/Demo.PresnationLayer.exe and b/Demo.PresnationLayer/bin/Debug/net5.0/Demo.PresnationLayer.exe differ
+[1mdiff --git a/Demo.PresnationLayer/bin/Debug/net5.0/Demo.PresnationLayer.pdb b/Demo.PresnationLayer/bin/Debug/net5.0/Demo.PresnationLayer.pdb[m
+[1mindex 5f8f33c..40c9170 100644[m
+Binary files a/Demo.PresnationLayer/bin/Debug/net5.0/Demo.PresnationLayer.pdb and b/Demo.PresnationLayer/bin/Debug/net5.0/Demo.PresnationLayer.pdb differ
+[1mdiff --git a/Demo.PresnationLayer/obj/Debug/net5.0/Demo.PresnationLayer.AssemblyInfo.cs b/Demo.PresnationLayer/obj/Debug/net5.0/Demo.PresnationLayer.AssemblyInfo.cs[m
+[1mindex f8b4f1b..ddeb31d 100644[m
+[1m--- a/Demo.PresnationLayer/obj/Debug/net5.0/Demo.PresnationLayer.AssemblyInfo.cs[m
+[1m+++ b/Demo.PresnationLayer/obj/Debug/net5.0/Demo.PresnationLayer.AssemblyInfo.cs[m
+[36m@@ -14,7 +14,7 @@[m [musing System.Reflection;[m
+ [assembly: System.Reflection.AssemblyCompanyAttribute("Demo.PresnationLayer")][m
+ [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")][m
+ [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")][m
+[31m-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")][m
+[32m+[m[32m[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8ecfc3c10ea824d1cfd59e5c15e1aefa00e8878f")][m
+ [assembly: System.Reflection.AssemblyProductAttribute("Demo.PresnationLayer")][m
+ [assembly: System.Reflection.AssemblyTitleAttribute("Demo.PresnationLayer")][m
+ [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")][m
+[1mdiff --git a/Demo.PresnationLayer/obj/Debug/net5.0/Demo.PresnationLayer.AssemblyInfoInputs.cache b/Demo.PresnationLayer/obj/Debug/net5.0/Demo.PresnationLayer.AssemblyInfoInputs.cache[m
+[1mindex 2e8f906..c181ca0 100644[m
+[1m--- a/Demo.PresnationLayer/obj/Debug/net5.0/Demo.PresnationLayer.AssemblyInfoInputs.cache[m
+[1m+++ b/Demo.PresnationLayer/obj/Debug/net5.0/Demo.PresnationLayer.AssemblyInfoInputs.cache[m
+[36m@@ -1 +1 @@[m
+[31m-9de5e855b7a7434134a9f316a004d0fdd611f4bac0f4c46580f72be32e74c25d[m
+[32m+[m[32m3b1a3a0ffe23341189d6bc9e89f39d2501673a81a87ca71472cbd318bed3ec82[m
+[1mdiff --git a/Demo.PresnationLayer/obj/Debug/net5.0/Demo.PresnationLayer.RazorTargetAssemblyInfo.cache b/Demo.PresnationLayer/obj/Debug/net5.0/Demo.PresnationLayer.RazorTargetAssemblyInfo.cache[m
+[1mindex d93b8ff..61019c5 100644[m
+[1m--- a/Demo.PresnationLayer/obj/Debug/net5.0/Demo.PresnationLayer.RazorTargetAssemblyInfo.cache[m
+[1m+++ b/Demo.PresnationLayer/obj/Debug/net5.0/Demo.PresnationLayer.RazorTargetAssemblyInfo.cache[m
+[36m@@ -1 +1 @@[m
+[31m-22f5a15024e59451aae7c0f4c6a5ef347a3d8389104f59f9e28b787228caa3f2[m
+[32m+[m[32m403143e59c49f1c8a7ca64dfb71a293e77fc302ee464dd33166f274283984d85[m
+[1mdiff --git a/Demo.PresnationLayer/obj/Debug/net5.0/Demo.PresnationLayer.RazorTargetAssemblyInfo.cs b/Demo.PresnationLayer/obj/Debug/net5.0/Demo.PresnationLayer.RazorTargetAssemblyInfo.cs[m
+[1mindex b482398..e1c1859 100644[m
+[1m--- a/Demo.PresnationLayer/obj/Debug/net5.0/Demo.PresnationLayer.RazorTargetAssemblyInfo.cs[m
+[1m+++ b/Demo.PresnationLayer/obj/Debug/net5.0/Demo.PresnationLayer.RazorTargetAssemblyInfo.cs[m
+[36m@@ -17,7 +17,7 @@[m [musing System.Reflection;[m
+ [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")][m
+ [assembly: System.Reflection.AssemblyProductAttribute("Demo.PresnationLayer")][m
+ [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")][m
+[31m-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")][m
+[32m+[m[32m[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8ecfc3c10ea824d1cfd59e5c15e1aefa00e8878f")][m
+ [assembly: System.Reflection.AssemblyTitleAttribute("Demo.PresnationLayer.Views")][m
+ [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")][m
+ [m
+[1mdiff --git a/Demo.PresnationLayer/obj/Debug/net5.0/Demo.PresnationLayer.Views.dll b/Demo.PresnationLayer/obj/Debug/net5.0/Demo.PresnationLayer.Views.dll[m
+[1mindex d09729f..7de9ff7 100644[m
+Binary files a/Demo.PresnationLayer/obj/Debug/net5.0/Demo.PresnationLayer.Views.dll and b/Demo.PresnationLayer/obj/Debug/net5.0/Demo.PresnationLayer.Views.dll differ
+[1mdiff --git a/Demo.PresnationLayer/obj/Debug/net5.0/Demo.PresnationLayer.Views.pdb b/Demo.PresnationLayer/obj/Debug/net5.0/Demo.PresnationLayer.Views.pdb[m
+[1mindex ac86d7d..8551afa 100644[m
+Binary files a/Demo.PresnationLayer/obj/Debug/net5.0/Demo.PresnationLayer.Views.pdb and b/Demo.PresnationLayer/obj/Debug/net5.0/Demo.PresnationLayer.Views.pdb differ
+[1mdiff --git a/Demo.PresnationLayer/obj/Debug/net5.0/Demo.PresnationLayer.csproj.FileListAbsolute.txt b/Demo.PresnationLayer/obj/Debug/net5.0/Demo.PresnationLayer.csproj.FileListAbsolute.txt[m
+[1mindex aed2033..3acb0ad 100644[m
+[1m--- a/Demo.PresnationLayer/obj/Debug/net5.0/Demo.PresnationLayer.csproj.FileListAbsolute.txt[m
+[1m+++ b/Demo.PresnationLayer/obj/Debug/net5.0/Demo.PresnationLayer.csproj.FileListAbsolute.txt[m
+[36m@@ -441,3 +441,4 @@[m [mC:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\bin\Debug\[m
+ C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\obj\Debug\net5.0\Razor\Views\Department\Index.cshtml.g.cs[m
+ C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\obj\Debug\net5.0\Razor\Views\Department\Create.cshtml.g.cs[m
+ C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\obj\Debug\net5.0\Razor\Views\Department\Details.cshtml.g.cs[m
+[32m+[m[32mC:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\obj\Debug\net5.0\Demo.PresnationLayer.sourcelink.json[m
+[1mdiff --git a/Demo.PresnationLayer/obj/Debug/net5.0/Demo.PresnationLayer.dll b/Demo.PresnationLayer/obj/Debug/net5.0/Demo.PresnationLayer.dll[m
+[1mindex a277451..2e3b379 100644[m
+Binary files a/Demo.PresnationLayer/obj/Debug/net5.0/Demo.PresnationLayer.dll and b/Demo.PresnationLayer/obj/Debug/net5.0/Demo.PresnationLayer.dll differ
+[1mdiff --git a/Demo.PresnationLayer/obj/Debug/net5.0/Demo.PresnationLayer.pdb b/Demo.PresnationLayer/obj/Debug/net5.0/Demo.PresnationLayer.pdb[m
+[1mindex 5f8f33c..40c9170 100644[m
+Binary files a/Demo.PresnationLayer/obj/Debug/net5.0/Demo.PresnationLayer.pdb and b/Demo.PresnationLayer/obj/Debug/net5.0/Demo.PresnationLayer.pdb differ
+[1mdiff --git a/Demo.PresnationLayer/obj/Debug/net5.0/Demo.PresnationLayer.sourcelink.json b/Demo.PresnationLayer/obj/Debug/net5.0/Demo.PresnationLayer.sourcelink.json[m
+[1mnew file mode 100644[m
+[1mindex 0000000..e726458[m
+[1m--- /dev/null[m
+[1m+++ b/Demo.PresnationLayer/obj/Debug/net5.0/Demo.PresnationLayer.sourcelink.json[m
+[36m@@ -0,0 +1 @@[m
+[32m+[m[32m{"documents":{"C:\\Users\\Mohye\\source\\repos\\Demo.PresnationLayer\\*":"https://raw.githubusercontent.com/mohye20/Demo.PresnationLayer/8ecfc3c10ea824d1cfd59e5c15e1aefa00e8878f/*"}}[m
+\ No newline at end of file[m
+[1mdiff --git a/Demo.PresnationLayer/obj/Debug/net5.0/Razor/Views/Department/Index.cshtml.g.cs b/Demo.PresnationLayer/obj/Debug/net5.0/Razor/Views/Department/Index.cshtml.g.cs[m
+[1mindex 70b66ad..6a63ddb 100644[m
+[1m--- a/Demo.PresnationLayer/obj/Debug/net5.0/Razor/Views/Department/Index.cshtml.g.cs[m
+[1m+++ b/Demo.PresnationLayer/obj/Debug/net5.0/Razor/Views/Department/Index.cshtml.g.cs[m
+[36m@@ -1,4 +1,4 @@[m
+[31m-#pragma checksum "C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\Views\Department\Index.cshtml" "{8829d00f-11b8-4213-878b-770e8597ac16}" "68acb298c94be93c8d635735f4487d8538b76271c1ae9aece5d9efab68e52d64"[m
+[32m+[m[32m#pragma checksum "C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\Views\Department\Index.cshtml" "{8829d00f-11b8-4213-878b-770e8597ac16}" "ca95f2fdb98fb1e1c5e4436d4e4ec9df4ed8834f905e46bf7169b0f58520eddd"[m
+ // <auto-generated/>[m
+ #pragma warning disable 1591[m
+ [assembly: global::Microsoft.AspNetCore.Razor.Hosting.RazorCompiledItemAttribute(typeof(AspNetCore.Views_Department_Index), @"mvc.1.0.view", @"/Views/Department/Index.cshtml")][m
+[36m@@ -32,7 +32,7 @@[m [musing Demo.PresnationLayer.Models[m
+ #line hidden[m
+ #nullable disable[m
+     ;[m
+[31m-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"Sha256", @"68acb298c94be93c8d635735f4487d8538b76271c1ae9aece5d9efab68e52d64", @"/Views/Department/Index.cshtml")][m
+[32m+[m[32m    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"Sha256", @"ca95f2fdb98fb1e1c5e4436d4e4ec9df4ed8834f905e46bf7169b0f58520eddd", @"/Views/Department/Index.cshtml")][m
+     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"Sha256", @"aaf9d33d69099a7fcb85017e6f043e40d1e02fe5c2e40e0edf0553cdf9b25fdc", @"/Views/_ViewImports.cshtml")][m
+     #nullable restore[m
+     public class Views_Department_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<Departmnet>>[m
+[36m@@ -41,6 +41,7 @@[m [musing Demo.PresnationLayer.Models[m
+         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "Create", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);[m
+         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_1 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("btn btn-success"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);[m
+         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_2 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "Details", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);[m
+[32m+[m[32m        private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_3 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "Edit", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);[m
+         #line hidden[m
+         #pragma warning disable 0649[m
+         private global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext __tagHelperExecutionContext;[m
+[36m@@ -76,7 +77,7 @@[m [musing Demo.PresnationLayer.Models[m
+ #nullable disable[m
+ [m
+             WriteLiteral("\r\n");[m
+[31m-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "68acb298c94be93c8d635735f4487d8538b76271c1ae9aece5d9efab68e52d644748", async() => {[m
+[32m+[m[32m            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ca95f2fdb98fb1e1c5e4436d4e4ec9df4ed8834f905e46bf7169b0f58520eddd5047", async() => {[m
+                 WriteLiteral("Create New Department");[m
+             }[m
+             );[m
+[36m@@ -174,7 +175,7 @@[m [musing Demo.PresnationLayer.Models[m
+ #nullable disable[m
+             );[m
+             WriteLiteral("</td>\r\n                    <td >");[m
+[31m-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "68acb298c94be93c8d635735f4487d8538b76271c1ae9aece5d9efab68e52d648910", async() => {[m
+[32m+[m[32m            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ca95f2fdb98fb1e1c5e4436d4e4ec9df4ed8834f905e46bf7169b0f58520eddd9209", async() => {[m
+                 WriteLiteral("<i class=\"fas fa-eye\"></i>");[m
+             }[m
+             );[m
+[36m@@ -206,7 +207,40 @@[m [musing Demo.PresnationLayer.Models[m
+             }[m
+             Write(__tagHelperExecutionContext.Output);[m
+             __tagHelperExecutionContext = __tagHelperScopeManager.End();[m
+[31m-            WriteLiteral(" </td>\r\n                    <td>Update</td>\r\n                    <td>Delete</td>\r\n                </tr>    \r\n");[m
+[32m+[m[32m            WriteLiteral(" </td>\r\n                    <td>");[m
+[32m+[m[32m            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ca95f2fdb98fb1e1c5e4436d4e4ec9df4ed8834f905e46bf7169b0f58520eddd11514", async() => {[m
+[32m+[m[32m                WriteLiteral("<i class=\"fas fa-edit\"></i>");[m
+[32m+[m[32m            }[m
+[32m+[m[32m            );[m
+[32m+[m[32m            __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper>();[m
+[32m+[m[32m            __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper);[m
+[32m+[m[32m            __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.Action = (string)__tagHelperAttribute_3.Value;[m
+[32m+[m[32m            __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_3);[m
+[32m+[m[32m            if (__Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.RouteValues == null)[m
+[32m+[m[32m            {[m
+[32m+[m[32m                throw new InvalidOperationException(InvalidTagHelperIndexerAssignment("asp-route-id", "Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper", "RouteValues"));[m
+[32m+[m[32m            }[m
+[32m+[m[32m            BeginWriteTagHelperAttribute();[m
+[32m+[m[32m            WriteLiteral([m
+[32m+[m[32m#nullable restore[m
+[32m+[m[32m#line 34 "C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\Views\Department\Index.cshtml"[m
+[32m+[m[32m                                                            department.Id[m
+[32m+[m
+[32m+[m[32m#line default[m
+[32m+[m[32m#line hidden[m
+[32m+[m[32m#nullable disable[m
+[32m+[m[32m            );[m
+[32m+[m[32m            __tagHelperStringValueBuffer = EndWriteTagHelperAttribute();[m
+[32m+[m[32m            __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.RouteValues["id"] = __tagHelperStringValueBuffer;[m
+[32m+[m[32m            __tagHelperExecutionContext.AddTagHelperAttribute("asp-route-id", __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.RouteValues["id"], global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);[m
+[32m+[m[32m            await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);[m
+[32m+[m[32m            if (!__tagHelperExecutionContext.Output.IsContentModified)[m
+[32m+[m[32m            {[m
+[32m+[m[32m                await __tagHelperExecutionContext.SetOutputContentAsync();[m
+[32m+[m[32m            }[m
+[32m+[m[32m            Write(__tagHelperExecutionContext.Output);[m
+[32m+[m[32m            __tagHelperExecutionContext = __tagHelperScopeManager.End();[m
+[32m+[m[32m            WriteLiteral("</td>\r\n                    <td>Delete</td>\r\n                </tr>    \r\n");[m
+ #nullable restore[m
+ #line 37 "C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\Views\Department\Index.cshtml"[m
+             }[m
+[1mdiff --git a/Demo.PresnationLayer/obj/Debug/net5.0/apphost.exe b/Demo.PresnationLayer/obj/Debug/net5.0/apphost.exe[m
+[1mindex 1ec8ffa..e075fb9 100644[m
+Binary files a/Demo.PresnationLayer/obj/Debug/net5.0/apphost.exe and b/Demo.PresnationLayer/obj/Debug/net5.0/apphost.exe differ
+[1mdiff --git a/Demo.PresnationLayer/obj/Debug/net5.0/ref/Demo.PresnationLayer.dll b/Demo.PresnationLayer/obj/Debug/net5.0/ref/Demo.PresnationLayer.dll[m
+[1mindex 761b804..776a810 100644[m
+Binary files a/Demo.PresnationLayer/obj/Debug/net5.0/ref/Demo.PresnationLayer.dll and b/Demo.PresnationLayer/obj/Debug/net5.0/ref/Demo.PresnationLayer.dll differ
+[1mdiff --git a/Demo.PresnationLayer/obj/Debug/net5.0/refint/Demo.PresnationLayer.dll b/Demo.PresnationLayer/obj/Debug/net5.0/refint/Demo.PresnationLayer.dll[m
+[1mindex 761b804..776a810 100644[m
+Binary files a/Demo.PresnationLayer/obj/Debug/net5.0/refint/Demo.PresnationLayer.dll and b/Demo.PresnationLayer/obj/Debug/net5.0/refint/Demo.PresnationLayer.dll differ

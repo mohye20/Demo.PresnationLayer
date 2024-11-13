@@ -1,5 +1,4 @@
-﻿
-using Demo.BuniessLogicLayer.Interfaces;
+﻿using Demo.BuniessLogicLayer.Interfaces;
 using Demo.BuniessLogicLayer.Repositories;
 using Demo.DataAcessLayer.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -10,28 +9,28 @@ namespace Demo.PresnationLayer.Controllers
 {
     public class DepartmentController : Controller
     {
-
         private readonly IDepartmentRepos _departmentRepos;
 
         public DepartmentController(IDepartmentRepos departmentRepos)
         {
-            _departmentRepos =  departmentRepos;
+            _departmentRepos = departmentRepos;
         }
+
         public IActionResult Index()
         {
-
             var department = _departmentRepos.GetAll();
             return View(department);
         }
 
-        public IActionResult Create() {
+        public IActionResult Create()
+        {
             return View();
         }
 
         [HttpPost]
         public IActionResult Create(Department departmnet)
         {
-            if (ModelState.IsValid) // server side validation 
+            if (ModelState.IsValid) // server side validation
             {
                 _departmentRepos.Add(departmnet);
 
@@ -41,25 +40,21 @@ namespace Demo.PresnationLayer.Controllers
             return View(departmnet);
         }
 
-        public IActionResult Details(int? id , string ViewName = "Details")
+        public IActionResult Details(int? id, string ViewName = "Details")
         {
-        
-
-            if(id is null)
+            if (id is null)
             {
-
                 return BadRequest();
             }
 
             var department = _departmentRepos.GetById(id.Value);
-            if(department is null)
+            if (department is null)
             {
                 return NotFound();
             }
 
             return View(ViewName, department);
         }
-
 
         [HttpGet]
         public IActionResult Edit(int? id)
@@ -77,31 +72,57 @@ namespace Demo.PresnationLayer.Controllers
             //return View(department);
 
             return Details(id, "Edit");
-
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Department department ,[FromRoute] int id) { 
-
-            if(id != department.Id)
+        public IActionResult Edit(Department department, [FromRoute] int id)
+        {
+            if (id != department.Id)
             {
                 return BadRequest();
             }
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 try
                 {
                     _departmentRepos.Update(department);
                     return RedirectToAction(nameof(Index));
                 }
-                catch(Exception Ex)
+                catch (Exception Ex)
                 {
                     ModelState.AddModelError(string.Empty, Ex.Message);
                 }
             }
 
             return View(department);
+        }
+
+        [HttpGet]
+        public IActionResult Delete(int? id)
+        {
+            return Details(id, "Delete");
+        }
+
+        [HttpPost]
+        public IActionResult Delete(Department department, [FromRoute] int id)
+        {
+            if (department.Id != id)
+            {
+                return BadRequest();
+            }
+            try
+            {
+                _departmentRepos.Delete(department);
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception Ex)
+            {
+                ModelState.AddModelError(string.Empty,Ex.Message);
+                return View(department);
+            }
+
+
         }
     }
 }
