@@ -1,0 +1,12 @@
+C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.DataAcessLayer\bin\Debug\net5.0\Demo.DataAcessLayer.deps.json
+C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.DataAcessLayer\bin\Debug\net5.0\Demo.DataAcessLayer.dll
+C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.DataAcessLayer\bin\Debug\net5.0\Demo.DataAcessLayer.pdb
+C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.DataAcessLayer\obj\Debug\net5.0\Demo.DataAcessLayer.csproj.AssemblyReference.cache
+C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.DataAcessLayer\obj\Debug\net5.0\Demo.DataAcessLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.DataAcessLayer\obj\Debug\net5.0\Demo.DataAcessLayer.AssemblyInfoInputs.cache
+C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.DataAcessLayer\obj\Debug\net5.0\Demo.DataAcessLayer.AssemblyInfo.cs
+C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.DataAcessLayer\obj\Debug\net5.0\Demo.DataAcessLayer.csproj.CoreCompileInputs.cache
+C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.DataAcessLayer\obj\Debug\net5.0\Demo.DataAcessLayer.dll
+C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.DataAcessLayer\obj\Debug\net5.0\refint\Demo.DataAcessLayer.dll
+C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.DataAcessLayer\obj\Debug\net5.0\Demo.DataAcessLayer.pdb
+C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.DataAcessLayer\obj\Debug\net5.0\ref\Demo.DataAcessLayer.dll
