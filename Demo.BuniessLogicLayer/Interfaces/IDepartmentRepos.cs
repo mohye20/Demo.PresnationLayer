@@ -7,16 +7,8 @@ using System.Threading.Tasks;
 
 namespace Demo.BuniessLogicLayer.Interfaces
 {
-    public interface IDepartmentRepos
+    public interface IDepartmentRepos : IGenericRepo<Department>
     {
-        IEnumerable<Department> GetAll();
-
-        Department GetById(int id);
-
-        int Add(Department departmnet);
-
-        int Update(Department departmnet);
-
-        int Delete(Department departmnet);
+       
     }
 }

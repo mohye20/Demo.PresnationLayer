@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Demo.BuniessLogicLayer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f060ec4f97d10b8281c96906317e1f9e33b3e8af")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+016d97bacb796e78b4031103a4e1125ddbb6a7da")]
 [assembly: System.Reflection.AssemblyProductAttribute("Demo.BuniessLogicLayer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Demo.BuniessLogicLayer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

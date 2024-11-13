@@ -7,16 +7,9 @@ using System.Threading.Tasks;
 
 namespace Demo.BuniessLogicLayer.Interfaces
 {
-    internal interface IEmployeeRepos
+    internal interface IEmployeeRepos:IGenericRepo<Employee>
     {
-        IEnumerable<Employee> GetAll();
-
-        Employee GetById(int id);
-
-        int Add(Employee employee);
-
-        int Update(Employee employee);
-
-        int Delete(Employee employee);
+        IQueryable<Employee> GetEmployeesByAddress(string address);
+       
     }
 }

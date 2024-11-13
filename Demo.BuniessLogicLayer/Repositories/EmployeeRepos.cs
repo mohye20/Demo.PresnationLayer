@@ -10,41 +10,17 @@ using System.Threading.Tasks;
 
 namespace Demo.BuniessLogicLayer.Repositories
 {
-    internal class EmployeeRepos : IEmployeeRepos
+    internal class EmployeeRepos : GenericRepo<Employee>, IEmployeeRepos
     {
         private readonly MVCAppDbContext _dbContext;
 
-        public EmployeeRepos(MVCAppDbContext dbContext)
+        public EmployeeRepos(MVCAppDbContext dbContext) : base(dbContext)
         {
             _dbContext = dbContext;
         }
 
-        public int Add(Employee employee)
-        {
-            _dbContext.Add(employee);
-            return _dbContext.SaveChanges();
-        }
+        public IQueryable<Employee> GetEmployeesByAddress(string address)
 
-        public int Delete(Employee employee)
-        {
-            _dbContext.Remove(employee);
-               return _dbContext.SaveChanges();
-        }
-
-        public IEnumerable<Employee> GetAll()
-        {
-            return _dbContext.Employees.ToList();
-        }
-
-        public Employee GetById(int id)
-        
-        => _dbContext.Employees.Find(id);
-        
-
-        public int Update(Employee employee)
-        {
-            _dbContext.Employees.Update(employee);
-            return _dbContext.SaveChanges();
-        }
+        => _dbContext.Employees.Where(E => E.Address == address);
     }
 }
