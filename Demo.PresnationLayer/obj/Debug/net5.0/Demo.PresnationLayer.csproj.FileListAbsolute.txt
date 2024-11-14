@@ -444,3 +444,7 @@ C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\obj\Debug\
 C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\obj\Debug\net5.0\Demo.PresnationLayer.sourcelink.json
 C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\obj\Debug\net5.0\Razor\Views\Department\Edit.cshtml.g.cs
 C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\obj\Debug\net5.0\Razor\Views\Department\Delete.cshtml.g.cs
+C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\obj\Debug\net5.0\Razor\Views\Employee\Index.cshtml.g.cs
+C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\obj\Debug\net5.0\Razor\Views\Employee\Create.cshtml.g.cs
+C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\obj\Debug\net5.0\Razor\Views\Employee\Details.cshtml.g.cs
+C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\obj\Debug\net5.0\Razor\Views\Employee\Edit.cshtml.g.cs

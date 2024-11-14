@@ -29,6 +29,7 @@ namespace Demo.PresnationLayer
             }); //Allow Dependacy Injection 
 
             services.AddScoped<IDepartmentRepos, DepartmentRepos>(); // Allow Depandacy injection class DepartmentRepos 
+            services.AddScoped<IEmployeeRepos, EmployeeRepos>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Demo.BuniessLogicLayer.Interfaces
 {
-    internal interface IEmployeeRepos:IGenericRepo<Employee>
+    public interface IEmployeeRepos:IGenericRepo<Employee>
     {
         IQueryable<Employee> GetEmployeesByAddress(string address);
        

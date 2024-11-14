@@ -27,7 +27,7 @@ namespace Demo.BuniessLogicLayer.Repositories
             return _dbContext.SaveChanges();
         }
 
-        public int Delete(int item)
+        public int Delete(T item)
         {
             _dbContext.Remove(item);
             return _dbContext.SaveChanges();

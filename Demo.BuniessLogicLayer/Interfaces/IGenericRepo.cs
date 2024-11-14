@@ -16,6 +16,6 @@ namespace Demo.BuniessLogicLayer.Interfaces
 
         int Update(T item);
 
-        int Delete(int id);
+        int Delete(T item);
     }
 }

@@ -2,24 +2,22 @@
 using Demo.BuniessLogicLayer.Repositories;
 using Demo.DataAcessLayer.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 
 namespace Demo.PresnationLayer.Controllers
 {
-    public class DepartmentController : Controller
+    public class EmployeeController : Controller
     {
-        private readonly IDepartmentRepos _departmentRepos;
+        private readonly IEmployeeRepos _employeeRepos;
 
-        public DepartmentController(IDepartmentRepos departmentRepos)
+        public EmployeeController(IEmployeeRepos employeeRepos) // Ask CLR For Creating Object From Class Impiliment Interface IEmployeeRepos
         {
-            _departmentRepos = departmentRepos;
+            _employeeRepos = employeeRepos;
         }
-
         public IActionResult Index()
         {
-            var department = _departmentRepos.GetAll();
-            return View(department);
+            var Employees = _employeeRepos.GetAll();
+            return View(Employees);
         }
 
         public IActionResult Create()
@@ -28,16 +26,16 @@ namespace Demo.PresnationLayer.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Department departmnet)
+        public IActionResult Create(Employee employee)
         {
             if (ModelState.IsValid) // server side validation
             {
-                _departmentRepos.Add(departmnet);
+                _employeeRepos.Add(employee);
 
                 return RedirectToAction(nameof(Index));
             }
 
-            return View(departmnet);
+            return View(employee);
         }
 
         public IActionResult Details(int? id, string ViewName = "Details")
@@ -47,38 +45,30 @@ namespace Demo.PresnationLayer.Controllers
                 return BadRequest();
             }
 
-            var department = _departmentRepos.Get(id.Value);
-            if (department is null)
+            var employee = _employeeRepos.Get(id.Value);
+            if (employee is null)
             {
                 return NotFound();
             }
 
-            return View(ViewName, department);
+            return View(ViewName, employee);
         }
+
 
         [HttpGet]
         public IActionResult Edit(int? id)
         {
-            //if(id is null)
-            //{
-            //    return BadRequest();
-            //}
-
-            //var department = _departmentRepos.GetById(id.Value);
-            //    if(department is null)
-            //{
-            //    return NotFound();
-            //}
-            //return View(department);
+           
 
             return Details(id, "Edit");
         }
 
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Department department, [FromRoute] int id)
+        public IActionResult Edit(Employee employee, [FromRoute] int id)
         {
-            if (id != department.Id)
+            if (id != employee.Id)
             {
                 return BadRequest();
             }
@@ -86,7 +76,7 @@ namespace Demo.PresnationLayer.Controllers
             {
                 try
                 {
-                    _departmentRepos.Update(department);
+                    _employeeRepos.Update(employee);
                     return RedirectToAction(nameof(Index));
                 }
                 catch (Exception Ex)
@@ -95,8 +85,9 @@ namespace Demo.PresnationLayer.Controllers
                 }
             }
 
-            return View(department);
+            return View(employee);
         }
+
 
         [HttpGet]
         public IActionResult Delete(int? id)
@@ -105,24 +96,26 @@ namespace Demo.PresnationLayer.Controllers
         }
 
         [HttpPost]
-        public IActionResult Delete(Department department, [FromRoute] int id)
+        public IActionResult Delete(Employee employee, [FromRoute] int id)
         {
-            if (department.Id != id)
+            if (employee.Id != id)
             {
                 return BadRequest();
             }
             try
             {
-                _departmentRepos.Delete(department);
+                _employeeRepos.Delete(employee);
                 return RedirectToAction(nameof(Index));
             }
             catch (Exception Ex)
             {
-                ModelState.AddModelError(string.Empty,Ex.Message);
-                return View(department);
+                ModelState.AddModelError(string.Empty, Ex.Message);
+                return View(employee);
             }
 
 
         }
+
+
     }
 }

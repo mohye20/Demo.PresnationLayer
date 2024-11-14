@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Demo.BuniessLogicLayer.Repositories
 {
-    internal class EmployeeRepos : GenericRepo<Employee>, IEmployeeRepos
+    public class EmployeeRepos : GenericRepo<Employee>, IEmployeeRepos
     {
         private readonly MVCAppDbContext _dbContext;
 
