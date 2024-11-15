@@ -17,7 +17,18 @@ namespace Demo.PresnationLayer.Controllers
         public IActionResult Index()
         {
             var Employees = _employeeRepos.GetAll();
-            return View(Employees);
+            // 1. viewData => KeyValueOaure[Dicionary Object ] 
+            //Transefer Data From Controller [Action] To Its View
+            // .Net FrameWork 3.5 
+            //ViewData["Message"] = "Hello From View Data";
+
+            //2. ViewBag = Dynamic Property [Based om Dynamic Keyword]
+            //Transefer Data From Controller [Action] To Its View
+            // .Net FrameWork 4.0
+            // 
+            //ViewBag.Message = "Hello From View Bag";
+
+			return View(Employees);
         }
 
         public IActionResult Create()

@@ -32,8 +32,12 @@ namespace Demo.PresnationLayer.Controllers
         {
             if (ModelState.IsValid) // server side validation
             {
-                _departmentRepos.Add(departmnet);
-
+               int Result =  _departmentRepos.Add(departmnet);
+                // 1. Temp Data => Dicitionary object 
+                // Transfer Data From Action To Action 
+                if(Result > 0) { 
+                TempData["Message"] = "Department Is Created";
+                }
                 return RedirectToAction(nameof(Index));
             }
 

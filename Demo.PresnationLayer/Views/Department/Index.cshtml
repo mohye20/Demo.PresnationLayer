@@ -3,6 +3,21 @@
 @{
     ViewData["Title"] = "All Departments";
 }
+@if (TempData["Message"] is not null)
+{
+    <div id="messageDiv" class="alert alert-success">
+
+        @TempData["Message"]
+    </div>
+    <script>
+        setTimeout(function () {
+            var messageDiv = document.getElementById("messageDiv");
+            if (messageDiv) {
+                messageDiv.style.display = "none";
+            }
+        }, 5000); 
+    </script>
+}
 
 <a asp-action="Create" class="btn btn-success">Create New Department</a>
 <br />

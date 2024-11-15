@@ -1,8 +1,21 @@
-﻿@model IEnumerable<Employee>
+﻿@model  IEnumerable<Employee>
 @{
-    ViewData["Title"] = "All Employee";
-}
+    ViewData["Title"] = "All Employee" ;
+    string ViewDataMessage = ViewData["Message"] as string;
+    // Enforce Type Safety -> Required Casting [Strongly Type]
 
+    string ViewBagMessage = ViewBag.Message;
+    // can not Enforce Type Safety -> Required Casting [Weakly Type]
+
+}
+@* 
+        <div class="alert alert-secondary">
+            @ViewData["Message"]
+        </div> *@
+
+@* <div class="alert alert-secondary">
+    @ViewBag.Message</div>
+ *@
 
 
 <a asp-action="Create" class="btn btn-success">Add New Employee</a>
