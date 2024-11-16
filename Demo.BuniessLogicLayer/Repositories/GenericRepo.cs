@@ -1,5 +1,7 @@
 ﻿using Demo.BuniessLogicLayer.Interfaces;
 using Demo.DataAcessLayer.Context;
+using Demo.DataAcessLayer.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,6 +42,10 @@ namespace Demo.BuniessLogicLayer.Repositories
 
         public IEnumerable<T> GetAll()
         {
+
+            if (typeof(T) == typeof(Employee))
+                return (IEnumerable<T>) _dbContext.Employees.Include(E => E.Department).ToList();
+
             return _dbContext.Set<T>().ToList();
         }
 

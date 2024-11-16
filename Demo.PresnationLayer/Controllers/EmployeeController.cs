@@ -9,10 +9,12 @@ namespace Demo.PresnationLayer.Controllers
     public class EmployeeController : Controller
     {
         private readonly IEmployeeRepos _employeeRepos;
+        private readonly IDepartmentRepos _departmentRepos;
 
-        public EmployeeController(IEmployeeRepos employeeRepos) // Ask CLR For Creating Object From Class Impiliment Interface IEmployeeRepos
+        public EmployeeController(IEmployeeRepos employeeRepos , IDepartmentRepos departmentRepos) // Ask CLR For Creating Object From Class Impiliment Interface IEmployeeRepos
         {
             _employeeRepos = employeeRepos;
+            _departmentRepos = departmentRepos;
         }
         public IActionResult Index()
         {
@@ -33,6 +35,8 @@ namespace Demo.PresnationLayer.Controllers
 
         public IActionResult Create()
         {
+            ViewBag.Departments = _departmentRepos.GetAll();    
+
             return View();
         }
 
