@@ -28,12 +28,18 @@ using Demo.DataAcessLayer.Models
 #line 3 "C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\Views\_ViewImports.cshtml"
 using Demo.PresnationLayer.Models
 
+#nullable disable
+    ;
+#nullable restore
+#line 4 "C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\Views\_ViewImports.cshtml"
+using Demo.BuniessLogicLayer.Interfaces
+
 #line default
 #line hidden
 #nullable disable
     ;
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"Sha256", @"52c5127c05f5b7bd7e9af5afb20d78d9aa7df2729bcf501f97438dfeec0703a3", @"/Views/Department/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"Sha256", @"aaf9d33d69099a7fcb85017e6f043e40d1e02fe5c2e40e0edf0553cdf9b25fdc", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"Sha256", @"b77fb1a3dc97598c9b5ce8925db569fd6745dca026182498570e194a05ccb6d3", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views_Department_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<Department>>
     #nullable disable
@@ -115,7 +121,7 @@ using Demo.PresnationLayer.Models
 #nullable disable
 
             WriteLiteral("\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "52c5127c05f5b7bd7e9af5afb20d78d9aa7df2729bcf501f97438dfeec0703a35949", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "52c5127c05f5b7bd7e9af5afb20d78d9aa7df2729bcf501f97438dfeec0703a36144", async() => {
                 WriteLiteral("Create New Department");
             }
             );
@@ -213,7 +219,7 @@ using Demo.PresnationLayer.Models
 #nullable disable
             );
             WriteLiteral("</td>\r\n\r\n\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "52c5127c05f5b7bd7e9af5afb20d78d9aa7df2729bcf501f97438dfeec0703a310114", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "52c5127c05f5b7bd7e9af5afb20d78d9aa7df2729bcf501f97438dfeec0703a310309", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();

@@ -26,10 +26,13 @@ namespace Demo.PresnationLayer
             services.AddDbContext<MVCAppDbContext>(Options =>
             {
                 Options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
-            }); //Allow Dependacy Injection 
+            } , ServiceLifetime.Scoped); //Allow Dependacy Injection 
 
-            services.AddScoped<IDepartmentRepos, DepartmentRepos>(); // Allow Depandacy injection class DepartmentRepos 
+            services.AddScoped<IDepartmentRepos, DepartmentRepos>(); // Allow Depandacy injection class DepartmentRepos
+                                                                     // 
             services.AddScoped<IEmployeeRepos, EmployeeRepos>();
+            //services.AddTransient<IEmployeeRepos, EmployeeRepos>();
+            //services.AddSingleton<IEmployeeRepos, EmployeeRepos>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

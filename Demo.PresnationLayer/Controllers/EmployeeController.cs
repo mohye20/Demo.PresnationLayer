@@ -35,7 +35,7 @@ namespace Demo.PresnationLayer.Controllers
 
         public IActionResult Create()
         {
-            ViewBag.Departments = _departmentRepos.GetAll();    
+            //ViewBag.Departments = _departmentRepos.GetAll();    
 
             return View();
         }
