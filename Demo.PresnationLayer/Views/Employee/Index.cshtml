@@ -48,15 +48,27 @@
                 <tr>
                     <td>@employee.Name</td>
                     <td>@employee.Age</td>
-                    <td>@employee.Salary</td>
+                    <td>@Html.DisplayFor(E=> employee.Salary)</td>
                     <td>@employee.Address</td>
-                    <td>@employee.Email</td>
+                    <td>@Html.DisplayFor(E=>employee.Email)</td>
                     <td>@employee.PhoneNumber</td>
                     <td>@employee.HireDate</td>
-                    <td>@employee.IsActive</td>
-                    <td><a asp-action="Details" asp-route-id="@employee.Id"><i class="fas fa-eye"></i></a> </td>
-                    <td><a asp-action="Edit" asp-route-id="@employee.Id"><i class="fas fa-edit"></i></a></td>
-                    <td><a asp-action="Delete" asp-route-id="@employee.Id"><i class="fas fa-trash"></i></a></td>
+                   
+                    <td>
+                        @if(employee.IsActive == true)
+                        {
+                            <i class="fa-solid fa-circle" style="color :green"></i>
+                        }
+
+                        else
+                        {
+                            <i class="fa-solid fa-circle" style="color :red"></i>
+
+                        }
+                    </td>
+
+                    <partial name="_ButtonsPartialView" model="@employee.Id" />
+
                 </tr>
             }
         </tbody>
