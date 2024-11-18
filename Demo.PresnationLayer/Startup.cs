@@ -1,6 +1,7 @@
 using Demo.BuniessLogicLayer.Interfaces;
 using Demo.BuniessLogicLayer.Repositories;
 using Demo.DataAcessLayer.Context;
+using Demo.PresnationLayer.MappingProfiles;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -31,8 +32,7 @@ namespace Demo.PresnationLayer
             services.AddScoped<IDepartmentRepos, DepartmentRepos>(); // Allow Depandacy injection class DepartmentRepos
                                                                      // 
             services.AddScoped<IEmployeeRepos, EmployeeRepos>();
-            //services.AddTransient<IEmployeeRepos, EmployeeRepos>();
-            //services.AddSingleton<IEmployeeRepos, EmployeeRepos>();
+            services.AddAutoMapper(M => M.AddProfile(new EmployeeProfile()));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

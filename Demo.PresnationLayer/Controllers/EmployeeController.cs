@@ -1,8 +1,12 @@
-﻿using Demo.BuniessLogicLayer.Interfaces;
+﻿using AutoMapper;
+using Demo.BuniessLogicLayer.Interfaces;
 using Demo.BuniessLogicLayer.Repositories;
 using Demo.DataAcessLayer.Models;
+using Demo.PresnationLayer.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Demo.PresnationLayer.Controllers
 {
@@ -10,47 +14,59 @@ namespace Demo.PresnationLayer.Controllers
     {
         private readonly IEmployeeRepos _employeeRepos;
         private readonly IDepartmentRepos _departmentRepos;
+        private readonly IMapper _mapper;
 
-        public EmployeeController(IEmployeeRepos employeeRepos , IDepartmentRepos departmentRepos) // Ask CLR For Creating Object From Class Impiliment Interface IEmployeeRepos
+        public EmployeeController(IEmployeeRepos employeeRepos, IDepartmentRepos departmentRepos,
+            IMapper mapper) // Ask CLR For Creating Object From Class Impiliment Interface IEmployeeRepos
         {
             _employeeRepos = employeeRepos;
             _departmentRepos = departmentRepos;
+            _mapper = mapper;
         }
+
         public IActionResult Index()
         {
             var Employees = _employeeRepos.GetAll();
-            // 1. viewData => KeyValueOaure[Dicionary Object ] 
-            //Transefer Data From Controller [Action] To Its View
-            // .Net FrameWork 3.5 
-            //ViewData["Message"] = "Hello From View Data";
+            var MappedEmployees = _mapper.Map<IEnumerable<Employee>, IEnumerable<EmployeeViewModel>>(Employees);
+            //var MappedEmployees = _mapper.Map<IEnumerable<Employee>, IEnumerable<EmployeeViewModel>>(Employees);
 
-            //2. ViewBag = Dynamic Property [Based om Dynamic Keyword]
-            //Transefer Data From Controller [Action] To Its View
-            // .Net FrameWork 4.0
-            // 
-            //ViewBag.Message = "Hello From View Bag";
 
-			return View(Employees);
+            return View(MappedEmployees);
         }
 
         public IActionResult Create()
         {
-            //ViewBag.Departments = _departmentRepos.GetAll();    
+            //ViewBag.Departments = _departmentRepos.GetAll();
 
             return View();
         }
 
         [HttpPost]
-        public IActionResult Create(Employee employee)
+        public IActionResult Create(EmployeeViewModel employeeVM)
         {
             if (ModelState.IsValid) // server side validation
             {
-                _employeeRepos.Add(employee);
+                /// Manual Mapping
+
+                //var MappedEmployee = new Employee()
+                //{
+                //    Name = employeeVM.Name,
+                //    Age = employeeVM.Age,
+                //    Address = employeeVM.Address,
+                //    PhoneNumber = employeeVM.PhoneNumber,
+                //    DepartmentId = employeeVM.DepartmentId,
+
+                //};
+                //Employee employee = (Employee) employeeVM;
+
+                var MappedEmployee = _mapper.Map<EmployeeViewModel, Employee>(employeeVM);
+
+                _employeeRepos.Add(MappedEmployee);
 
                 return RedirectToAction(nameof(Index));
             }
 
-            return View(employee);
+            return View(employeeVM);
         }
 
         public IActionResult Details(int? id, string ViewName = "Details")
@@ -66,24 +82,22 @@ namespace Demo.PresnationLayer.Controllers
                 return NotFound();
             }
 
-            return View(ViewName, employee);
-        }
+            var MappedEmployee = _mapper.Map<Employee, EmployeeViewModel>(employee);
 
+            return View(ViewName, MappedEmployee);
+        }
 
         [HttpGet]
         public IActionResult Edit(int? id)
         {
-           
-
             return Details(id, "Edit");
         }
 
-
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Employee employee, [FromRoute] int id)
+        public IActionResult Edit(EmployeeViewModel employeeVM, [FromRoute] int id)
         {
-            if (id != employee.Id)
+            if (id != employeeVM.Id)
             {
                 return BadRequest();
             }
@@ -91,7 +105,9 @@ namespace Demo.PresnationLayer.Controllers
             {
                 try
                 {
-                    _employeeRepos.Update(employee);
+
+                    var MappedEmployee = _mapper.Map<EmployeeViewModel,Employee>(employeeVM);
+                    _employeeRepos.Update(MappedEmployee);
                     return RedirectToAction(nameof(Index));
                 }
                 catch (Exception Ex)
@@ -100,9 +116,8 @@ namespace Demo.PresnationLayer.Controllers
                 }
             }
 
-            return View(employee);
+            return View(employeeVM);
         }
-
 
         [HttpGet]
         public IActionResult Delete(int? id)
@@ -111,26 +126,23 @@ namespace Demo.PresnationLayer.Controllers
         }
 
         [HttpPost]
-        public IActionResult Delete(Employee employee, [FromRoute] int id)
+        public IActionResult Delete(EmployeeViewModel employeeVM, [FromRoute] int id)
         {
-            if (employee.Id != id)
+            if (employeeVM.Id != id)
             {
                 return BadRequest();
             }
             try
             {
-                _employeeRepos.Delete(employee);
+                var MapopedEmployee = _mapper.Map<EmployeeViewModel, Employee>(employeeVM);
+                _employeeRepos.Delete(MapopedEmployee);
                 return RedirectToAction(nameof(Index));
             }
             catch (Exception Ex)
             {
                 ModelState.AddModelError(string.Empty, Ex.Message);
-                return View(employee);
+                return View(employeeVM);
             }
-
-
         }
-
-
     }
 }

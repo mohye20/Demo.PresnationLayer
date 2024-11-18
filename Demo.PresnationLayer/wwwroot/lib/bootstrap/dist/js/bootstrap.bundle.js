@@ -800,13 +800,8 @@
         return;
       }
 
-      var start = function start(event) {
-        if (_this3._pointerEvent && PointerType[event.originalEvent.pointerType.toUpperCase()]) {
-          _this3.touchStartX = event.originalEvent.clientX;
-        } else if (!_this3._pointerEvent) {
-          _this3.touchStartX = event.originalEvent.touches[0].clientX;
-        }
-      };
+        var start = 
+;
 
       var move = function move(event) {
         // ensure swiping with one touch and not pinching

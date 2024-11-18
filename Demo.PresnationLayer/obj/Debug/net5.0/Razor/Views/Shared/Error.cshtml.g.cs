@@ -34,12 +34,18 @@ using Demo.PresnationLayer.Models
 #line 4 "C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\Views\_ViewImports.cshtml"
 using Demo.BuniessLogicLayer.Interfaces
 
+#nullable disable
+    ;
+#nullable restore
+#line 5 "C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\Views\_ViewImports.cshtml"
+using Demo.PresnationLayer.ViewModels
+
 #line default
 #line hidden
 #nullable disable
     ;
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"Sha256", @"5dbf98b6b9394ad78206edce40cab1d7a238aa69cfefa41bab0ebc6aa22488aa", @"/Views/Shared/Error.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"Sha256", @"b77fb1a3dc97598c9b5ce8925db569fd6745dca026182498570e194a05ccb6d3", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"Sha256", @"aa6c36affaeefdc0b4fefa0ff1dc649dae04583b321ce6341a01ca48f104615c", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views_Shared_Error : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<ErrorViewModel>
     #nullable disable

@@ -97,7 +97,6 @@ C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\bin\Debug\
 C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\bin\Debug\net5.0\refs\Microsoft.Extensions.Configuration.KeyPerFile.dll
 C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\bin\Debug\net5.0\refs\Microsoft.Extensions.Configuration.UserSecrets.dll
 C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\bin\Debug\net5.0\refs\Microsoft.Extensions.Configuration.Xml.dll
-C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\bin\Debug\net5.0\refs\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\bin\Debug\net5.0\refs\Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll
 C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\bin\Debug\net5.0\refs\Microsoft.Extensions.Diagnostics.HealthChecks.dll
 C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\bin\Debug\net5.0\refs\Microsoft.Extensions.FileProviders.Abstractions.dll
@@ -123,8 +122,6 @@ C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\bin\Debug\
 C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\bin\Debug\net5.0\refs\Microsoft.Extensions.ObjectPool.dll
 C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\bin\Debug\net5.0\refs\Microsoft.Extensions.Options.ConfigurationExtensions.dll
 C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\bin\Debug\net5.0\refs\Microsoft.Extensions.Options.DataAnnotations.dll
-C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\bin\Debug\net5.0\refs\Microsoft.Extensions.Options.dll
-C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\bin\Debug\net5.0\refs\Microsoft.Extensions.Primitives.dll
 C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\bin\Debug\net5.0\refs\Microsoft.Extensions.WebEncoders.dll
 C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\bin\Debug\net5.0\refs\Microsoft.JSInterop.dll
 C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\bin\Debug\net5.0\refs\Microsoft.Net.Http.Headers.dll
@@ -223,7 +220,6 @@ C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\bin\Debug\
 C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\bin\Debug\net5.0\refs\System.Resources.Reader.dll
 C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\bin\Debug\net5.0\refs\System.Resources.ResourceManager.dll
 C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\bin\Debug\net5.0\refs\System.Resources.Writer.dll
-C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\bin\Debug\net5.0\refs\System.Runtime.CompilerServices.Unsafe.dll
 C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\bin\Debug\net5.0\refs\System.Runtime.CompilerServices.VisualC.dll
 C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\bin\Debug\net5.0\refs\System.Runtime.dll
 C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\bin\Debug\net5.0\refs\System.Runtime.Extensions.dll
@@ -452,3 +448,9 @@ C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\obj\Debug\
 C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\obj\Debug\net5.0\Razor\Views\Shared\_ButtonsPartialView.cshtml.g.cs
 C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\obj\Debug\net5.0\Razor\Views\Employee\PartialViews\CreateEditPartialView.cshtml.g.cs
 C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\obj\Debug\net5.0\Razor\Views\Employee\PartialViews\DeleteDetailsPartialView.cshtml.g.cs
+C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\bin\Debug\net5.0\AutoMapper.dll
+C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\bin\Debug\net5.0\Microsoft.Extensions.Options.dll
+C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
+C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll
