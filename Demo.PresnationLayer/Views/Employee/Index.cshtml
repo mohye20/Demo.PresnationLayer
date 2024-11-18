@@ -25,6 +25,17 @@
 {
     <h1>All Employees</h1>
     <br />
+   <div class="m-2">
+        <form class="row offset-2 " asp-action="Index">
+            <div class="col-md-8">
+                <input class="form-control" type="text" name="SearchValue" placeholder="Employees Name" />
+            </div>
+            <div class="col-md-4">
+                <input class="btn btn-info" type="submit" value="Search">
+            </div>
+
+        </form>
+   </div>
     <table class="table table-striped mt-3">
         <thead>
             <tr>

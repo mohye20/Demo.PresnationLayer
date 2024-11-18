@@ -10,6 +10,7 @@ namespace Demo.BuniessLogicLayer.Interfaces
     public interface IEmployeeRepos:IGenericRepo<Employee>
     {
         IQueryable<Employee> GetEmployeesByAddress(string address);
+        IQueryable<Employee> GetEmployeesByName(String SearchValue);
        
     }
 }

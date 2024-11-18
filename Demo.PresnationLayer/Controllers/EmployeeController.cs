@@ -1,11 +1,9 @@
 ﻿using AutoMapper;
 using Demo.BuniessLogicLayer.Interfaces;
-using Demo.BuniessLogicLayer.Repositories;
 using Demo.DataAcessLayer.Models;
 using Demo.PresnationLayer.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace Demo.PresnationLayer.Controllers
@@ -24,14 +22,21 @@ namespace Demo.PresnationLayer.Controllers
             _mapper = mapper;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string SearchValue)
         {
-            var Employees = _employeeRepos.GetAll();
-            var MappedEmployees = _mapper.Map<IEnumerable<Employee>, IEnumerable<EmployeeViewModel>>(Employees);
-            //var MappedEmployees = _mapper.Map<IEnumerable<Employee>, IEnumerable<EmployeeViewModel>>(Employees);
 
 
-            return View(MappedEmployees);
+            IEnumerable<Employee> Employees;
+            if (string.IsNullOrEmpty(SearchValue))
+                Employees = _employeeRepos.GetAll();
+
+
+            else
+                Employees = _employeeRepos.GetEmployeesByName(SearchValue);
+
+            var MappedEmployee = _mapper.Map<IEnumerable<Employee>, IEnumerable<EmployeeViewModel>>(Employees);
+            return View(MappedEmployee);
+
         }
 
         public IActionResult Create()
@@ -106,7 +111,7 @@ namespace Demo.PresnationLayer.Controllers
                 try
                 {
 
-                    var MappedEmployee = _mapper.Map<EmployeeViewModel,Employee>(employeeVM);
+                    var MappedEmployee = _mapper.Map<EmployeeViewModel, Employee>(employeeVM);
                     _employeeRepos.Update(MappedEmployee);
                     return RedirectToAction(nameof(Index));
                 }

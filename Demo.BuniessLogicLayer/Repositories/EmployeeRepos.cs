@@ -22,5 +22,10 @@ namespace Demo.BuniessLogicLayer.Repositories
         public IQueryable<Employee> GetEmployeesByAddress(string address)
 
         => _dbContext.Employees.Where(E => E.Address == address);
+
+        public IQueryable<Employee> GetEmployeesByName(string SearchValue)
+        
+           =>  _dbContext.Employees.Where(E => E.Name.ToLower().Contains(SearchValue.ToLower()));
+        
     }
 }
