@@ -9,16 +9,16 @@ namespace Demo.PresnationLayer.Controllers
 {
     public class DepartmentController : Controller
     {
-        private readonly IDepartmentRepos _departmentRepos;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public DepartmentController(IDepartmentRepos departmentRepos)
+        public DepartmentController(IUnitOfWork unitOfWork)
         {
-            _departmentRepos = departmentRepos;
+            _unitOfWork = unitOfWork;
         }
 
         public IActionResult Index()
         {
-            var department = _departmentRepos.GetAll();
+            var department = _unitOfWork.DepartmentRepos.GetAll();
             return View(department);
         }
 
@@ -32,9 +32,9 @@ namespace Demo.PresnationLayer.Controllers
         {
             if (ModelState.IsValid) // server side validation
             {
-               int Result =  _departmentRepos.Add(departmnet);
-                // 1. Temp Data => Dicitionary object 
-                // Transfer Data From Action To Action 
+                _unitOfWork.DepartmentRepos.Add(departmnet);
+              int Result =   _unitOfWork.Compelete();
+              
                 if(Result > 0) { 
                 TempData["Message"] = "Department Is Created";
                 }
@@ -51,7 +51,7 @@ namespace Demo.PresnationLayer.Controllers
                 return BadRequest();
             }
 
-            var department = _departmentRepos.Get(id.Value);
+            var department = _unitOfWork.DepartmentRepos.Get(id.Value);
             if (department is null)
             {
                 return NotFound();
@@ -68,7 +68,7 @@ namespace Demo.PresnationLayer.Controllers
             //    return BadRequest();
             //}
 
-            //var department = _departmentRepos.GetById(id.Value);
+            //var department = _unitOfWork.DepartmentRepos.GetById(id.Value);
             //    if(department is null)
             //{
             //    return NotFound();
@@ -90,7 +90,8 @@ namespace Demo.PresnationLayer.Controllers
             {
                 try
                 {
-                    _departmentRepos.Update(department);
+                    _unitOfWork.DepartmentRepos.Update(department);
+                    _unitOfWork.Compelete();
                     return RedirectToAction(nameof(Index));
                 }
                 catch (Exception Ex)
@@ -117,7 +118,8 @@ namespace Demo.PresnationLayer.Controllers
             }
             try
             {
-                _departmentRepos.Delete(department);
+                _unitOfWork.DepartmentRepos.Delete(department);
+                _unitOfWork.Compelete();
                 return RedirectToAction(nameof(Index));
             }
             catch (Exception Ex)

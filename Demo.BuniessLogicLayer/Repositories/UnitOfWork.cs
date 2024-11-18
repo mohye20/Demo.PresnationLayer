@@ -1,4 +1,5 @@
-﻿using Demo.BuniessLogicLayer.Interfaces;
+﻿
+using Demo.BuniessLogicLayer.Interfaces;
 using Demo.DataAcessLayer.Context;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Demo.BuniessLogicLayer.Repositories
 {
-    public class UnitOfWork : IUnitOfWork
+    public class UnitOfWork : IUnitOfWork, IDisposable
     {
         private readonly MVCAppDbContext _dbContext;
 
@@ -26,6 +27,13 @@ namespace Demo.BuniessLogicLayer.Repositories
         public int Compelete()
         {
            return  _dbContext.SaveChanges();
+        }
+
+      
+
+        public void Dispose()
+        {
+            _dbContext.Dispose();
         }
     }
 }

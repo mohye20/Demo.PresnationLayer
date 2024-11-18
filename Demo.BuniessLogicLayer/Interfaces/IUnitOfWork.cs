@@ -14,5 +14,6 @@ namespace Demo.BuniessLogicLayer.Interfaces
 
         int Compelete();
 
+
     }
 }
