@@ -10,33 +10,26 @@ namespace Demo.PresnationLayer.Controllers
 {
     public class EmployeeController : Controller
     {
-        private readonly IEmployeeRepos _employeeRepos;
-        private readonly IDepartmentRepos _departmentRepos;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
 
-        public EmployeeController(IEmployeeRepos employeeRepos, IDepartmentRepos departmentRepos,
+        public EmployeeController(IUnitOfWork unitOfWork, // ASK CLR For Object From Class Implememnt Interface UnitOfWork
             IMapper mapper) // Ask CLR For Creating Object From Class Impiliment Interface IEmployeeRepos
         {
-            _employeeRepos = employeeRepos;
-            _departmentRepos = departmentRepos;
+            _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
 
         public IActionResult Index(string SearchValue)
         {
-
-
             IEnumerable<Employee> Employees;
             if (string.IsNullOrEmpty(SearchValue))
-                Employees = _employeeRepos.GetAll();
-
-
+                Employees = _unitOfWork.EmployeeRepos.GetAll();
             else
-                Employees = _employeeRepos.GetEmployeesByName(SearchValue);
+                Employees = _unitOfWork.EmployeeRepos.GetEmployeesByName(SearchValue);
 
             var MappedEmployee = _mapper.Map<IEnumerable<Employee>, IEnumerable<EmployeeViewModel>>(Employees);
             return View(MappedEmployee);
-
         }
 
         public IActionResult Create()
@@ -66,7 +59,9 @@ namespace Demo.PresnationLayer.Controllers
 
                 var MappedEmployee = _mapper.Map<EmployeeViewModel, Employee>(employeeVM);
 
-                _employeeRepos.Add(MappedEmployee);
+                _unitOfWork.EmployeeRepos.Add(MappedEmployee);
+
+                _unitOfWork.Compelete();
 
                 return RedirectToAction(nameof(Index));
             }
@@ -81,7 +76,7 @@ namespace Demo.PresnationLayer.Controllers
                 return BadRequest();
             }
 
-            var employee = _employeeRepos.Get(id.Value);
+            var employee = _unitOfWork.EmployeeRepos.Get(id.Value);
             if (employee is null)
             {
                 return NotFound();
@@ -110,9 +105,10 @@ namespace Demo.PresnationLayer.Controllers
             {
                 try
                 {
-
                     var MappedEmployee = _mapper.Map<EmployeeViewModel, Employee>(employeeVM);
-                    _employeeRepos.Update(MappedEmployee);
+                    _unitOfWork.EmployeeRepos.Update(MappedEmployee);
+                    _unitOfWork.Compelete();
+
                     return RedirectToAction(nameof(Index));
                 }
                 catch (Exception Ex)
@@ -140,7 +136,8 @@ namespace Demo.PresnationLayer.Controllers
             try
             {
                 var MapopedEmployee = _mapper.Map<EmployeeViewModel, Employee>(employeeVM);
-                _employeeRepos.Delete(MapopedEmployee);
+                _unitOfWork.EmployeeRepos.Delete(MapopedEmployee);
+                _unitOfWork.Compelete();
                 return RedirectToAction(nameof(Index));
             }
             catch (Exception Ex)

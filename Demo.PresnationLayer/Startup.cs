@@ -27,11 +27,11 @@ namespace Demo.PresnationLayer
             services.AddDbContext<MVCAppDbContext>(Options =>
             {
                 Options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
-            } , ServiceLifetime.Scoped); //Allow Dependacy Injection 
+            }, ServiceLifetime.Scoped); //Allow Dependacy Injection
 
             services.AddScoped<IDepartmentRepos, DepartmentRepos>(); // Allow Depandacy injection class DepartmentRepos
-                                                                     // 
-            services.AddScoped<IEmployeeRepos, EmployeeRepos>();
+                                                                     //
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddAutoMapper(M => M.AddProfile(new EmployeeProfile()));
         }
 
