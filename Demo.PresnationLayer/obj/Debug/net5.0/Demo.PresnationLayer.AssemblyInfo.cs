@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Demo.PresnationLayer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8f0c75905b3db493610efb3ca1d8d915aec54410")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6fc02497ba012f982b85f05846b334bacdd623b0")]
 [assembly: System.Reflection.AssemblyProductAttribute("Demo.PresnationLayer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Demo.PresnationLayer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

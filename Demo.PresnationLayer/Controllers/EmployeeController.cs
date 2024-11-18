@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Demo.BuniessLogicLayer.Interfaces;
 using Demo.DataAcessLayer.Models;
+using Demo.PresnationLayer.Helpers;
 using Demo.PresnationLayer.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -44,19 +45,7 @@ namespace Demo.PresnationLayer.Controllers
         {
             if (ModelState.IsValid) // server side validation
             {
-                /// Manual Mapping
-
-                //var MappedEmployee = new Employee()
-                //{
-                //    Name = employeeVM.Name,
-                //    Age = employeeVM.Age,
-                //    Address = employeeVM.Address,
-                //    PhoneNumber = employeeVM.PhoneNumber,
-                //    DepartmentId = employeeVM.DepartmentId,
-
-                //};
-                //Employee employee = (Employee) employeeVM;
-
+                employeeVM.ImageName = DocumentSettings.UploadFile(employeeVM.Image, "Images");
                 var MappedEmployee = _mapper.Map<EmployeeViewModel, Employee>(employeeVM);
 
                 _unitOfWork.EmployeeRepos.Add(MappedEmployee);

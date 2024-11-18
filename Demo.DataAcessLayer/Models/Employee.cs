@@ -31,6 +31,8 @@ namespace Demo.DataAcessLayer.Models
 
         public DateTime CreationDate { get; set; } = DateTime.Now;
 
+        public string ImageName { get; set; }
+
         [ForeignKey("Department")]
         public int? DepartmentId { get; set; } // Forign key 
         // FK Optional => onDelete : Restrict
