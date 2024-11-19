@@ -1,4 +1,6 @@
 ﻿using Demo.DataAcessLayer.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Demo.DataAcessLayer.Context
 {
-    public class MVCAppDbContext : DbContext
+    public class MVCAppDbContext : IdentityDbContext
     {
         public MVCAppDbContext(DbContextOptions<MVCAppDbContext> options) : base(options)
         {
@@ -20,5 +22,7 @@ namespace Demo.DataAcessLayer.Context
         public DbSet<Department> Departmnets { get; set; }
 
         public DbSet<Employee> Employees { get; set; }
+
+       
     }
 }
