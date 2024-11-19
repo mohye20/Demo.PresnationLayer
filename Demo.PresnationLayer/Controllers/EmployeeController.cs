@@ -126,7 +126,10 @@ namespace Demo.PresnationLayer.Controllers
             {
                 var MapopedEmployee = _mapper.Map<EmployeeViewModel, Employee>(employeeVM);
                 _unitOfWork.EmployeeRepos.Delete(MapopedEmployee);
-                _unitOfWork.Compelete();
+                var Result = _unitOfWork.Compelete();
+                if (Result > 0 && employeeVM.ImageName is not null)
+                    DocumentSettings.DeleteFile(employeeVM.ImageName, "Images");
+
                 return RedirectToAction(nameof(Index));
             }
             catch (Exception Ex)
