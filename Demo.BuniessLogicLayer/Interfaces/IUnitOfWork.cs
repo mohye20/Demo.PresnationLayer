@@ -12,7 +12,7 @@ namespace Demo.BuniessLogicLayer.Interfaces
         public IEmployeeRepos EmployeeRepos { get; set; }
         public IDepartmentRepos DepartmentRepos { get; set; }
 
-        int Compelete();
+        Task<int> Compelete();
 
 
     }

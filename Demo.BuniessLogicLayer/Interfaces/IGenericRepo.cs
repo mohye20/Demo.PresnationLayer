@@ -1,18 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Demo.BuniessLogicLayer.Interfaces
 {
     public interface IGenericRepo<T>
     {
-        IEnumerable<T> GetAll();
+        Task<IEnumerable<T>> GetAllAsync();
 
-        T Get(int id);
+        Task<T> GetAsync(int id);
 
-        void Add(T item);
+        Task AddAsync(T item);
 
         void Update(T item);
 

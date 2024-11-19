@@ -13,7 +13,7 @@ namespace Demo.PresnationLayer.Helpers
                 // 1- Get Located Folder Path
                 string FolderPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\Files", FolderName);
                 // 2- Get File Name And Make It Unique
-                string FileName = $"{Guid.NewGuid()}{file.FileName}";
+                string FileName = $"{Guid.NewGuid()}{file?.FileName}";
                 // 3- Get File Path[Folder Path + FileName ]
                 string FilePath = Path.Combine(FolderPath, FileName);
                 // 4- Save File As Streams
