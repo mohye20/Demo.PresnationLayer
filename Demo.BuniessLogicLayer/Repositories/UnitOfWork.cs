@@ -24,7 +24,7 @@ namespace Demo.BuniessLogicLayer.Repositories
             _dbContext = dbContext;
         }
 
-        public async Task<int> Compelete()
+        public async Task<int> CompeleteAsync()
         {
            return await _dbContext.SaveChangesAsync();
         }

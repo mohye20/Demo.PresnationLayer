@@ -4,6 +4,7 @@ using Demo.DataAcessLayer.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
+using System.Threading.Tasks;
 
 namespace Demo.PresnationLayer.Controllers
 {
@@ -16,9 +17,10 @@ namespace Demo.PresnationLayer.Controllers
             _unitOfWork = unitOfWork;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var department = _unitOfWork.DepartmentRepos.GetAll();
+            //var department = _unitOfWork.DepartmentRepos.GetAllAsync().Result;
+            var department =await _unitOfWork.DepartmentRepos.GetAllAsync();
             return View(department);
         }
 
@@ -28,12 +30,12 @@ namespace Demo.PresnationLayer.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Department departmnet)
+        public async Task<IActionResult> Create(Department departmnet)
         {
             if (ModelState.IsValid) // server side validation
             {
-                _unitOfWork.DepartmentRepos.Add(departmnet);
-              int Result =   _unitOfWork.Compelete();
+               await _unitOfWork.DepartmentRepos.AddAsync(departmnet);
+              int Result = await  _unitOfWork.CompeleteAsync();
               
                 if(Result > 0) { 
                 TempData["Message"] = "Department Is Created";
@@ -44,14 +46,14 @@ namespace Demo.PresnationLayer.Controllers
             return View(departmnet);
         }
 
-        public IActionResult Details(int? id, string ViewName = "Details")
+        public async Task<IActionResult> Details(int? id, string ViewName = "Details")
         {
             if (id is null)
             {
                 return BadRequest();
             }
 
-            var department = _unitOfWork.DepartmentRepos.Get(id.Value);
+            var department =await _unitOfWork.DepartmentRepos.GetAsync(id.Value);
             if (department is null)
             {
                 return NotFound();
@@ -61,26 +63,16 @@ namespace Demo.PresnationLayer.Controllers
         }
 
         [HttpGet]
-        public IActionResult Edit(int? id)
+        public async Task<IActionResult> Edit(int? id)
         {
-            //if(id is null)
-            //{
-            //    return BadRequest();
-            //}
+            
 
-            //var department = _unitOfWork.DepartmentRepos.GetById(id.Value);
-            //    if(department is null)
-            //{
-            //    return NotFound();
-            //}
-            //return View(department);
-
-            return Details(id, "Edit");
+            return  await Details(id, "Edit");
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Department department, [FromRoute] int id)
+        public async Task<IActionResult> Edit(Department department, [FromRoute] int id)
         {
             if (id != department.Id)
             {
@@ -91,7 +83,7 @@ namespace Demo.PresnationLayer.Controllers
                 try
                 {
                     _unitOfWork.DepartmentRepos.Update(department);
-                    _unitOfWork.Compelete();
+                   await _unitOfWork.CompeleteAsync();
                     return RedirectToAction(nameof(Index));
                 }
                 catch (Exception Ex)
@@ -104,13 +96,13 @@ namespace Demo.PresnationLayer.Controllers
         }
 
         [HttpGet]
-        public IActionResult Delete(int? id)
+        public async Task<IActionResult> Delete(int? id)
         {
-            return Details(id, "Delete");
+            return await Details(id, "Delete");
         }
 
         [HttpPost]
-        public IActionResult Delete(Department department, [FromRoute] int id)
+        public async Task<IActionResult> Delete(Department department, [FromRoute] int id)
         {
             if (department.Id != id)
             {
@@ -119,7 +111,7 @@ namespace Demo.PresnationLayer.Controllers
             try
             {
                 _unitOfWork.DepartmentRepos.Delete(department);
-                _unitOfWork.Compelete();
+               await _unitOfWork.CompeleteAsync();
                 return RedirectToAction(nameof(Index));
             }
             catch (Exception Ex)

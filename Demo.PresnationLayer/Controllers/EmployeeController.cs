@@ -6,6 +6,7 @@ using Demo.PresnationLayer.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Demo.PresnationLayer.Controllers
 {
@@ -21,11 +22,11 @@ namespace Demo.PresnationLayer.Controllers
             _mapper = mapper;
         }
 
-        public IActionResult Index(string SearchValue)
+        public async Task<IActionResult> Index(string SearchValue)
         {
             IEnumerable<Employee> Employees;
             if (string.IsNullOrEmpty(SearchValue))
-                Employees = _unitOfWork.EmployeeRepos.GetAll();
+                Employees =await _unitOfWork.EmployeeRepos.GetAllAsync();
             else
                 Employees = _unitOfWork.EmployeeRepos.GetEmployeesByName(SearchValue);
 
@@ -41,16 +42,16 @@ namespace Demo.PresnationLayer.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(EmployeeViewModel employeeVM)
+        public async Task<IActionResult> Create(EmployeeViewModel employeeVM)
         {
             if (ModelState.IsValid) // server side validation
             {
                 employeeVM.ImageName = DocumentSettings.UploadFile(employeeVM.Image, "Images");
                 var MappedEmployee = _mapper.Map<EmployeeViewModel, Employee>(employeeVM);
 
-                _unitOfWork.EmployeeRepos.Add(MappedEmployee);
+               await _unitOfWork.EmployeeRepos.AddAsync(MappedEmployee);
 
-                _unitOfWork.Compelete();
+               await _unitOfWork.CompeleteAsync();
 
                 return RedirectToAction(nameof(Index));
             }
@@ -58,14 +59,14 @@ namespace Demo.PresnationLayer.Controllers
             return View(employeeVM);
         }
 
-        public IActionResult Details(int? id, string ViewName = "Details")
+        public async Task<IActionResult> Details(int? id, string ViewName = "Details")
         {
             if (id is null)
             {
                 return BadRequest();
             }
 
-            var employee = _unitOfWork.EmployeeRepos.Get(id.Value);
+            var employee = await _unitOfWork.EmployeeRepos.GetAsync(id.Value);
             if (employee is null)
             {
                 return NotFound();
@@ -77,14 +78,14 @@ namespace Demo.PresnationLayer.Controllers
         }
 
         [HttpGet]
-        public IActionResult Edit(int? id)
+        public async Task<IActionResult> Edit(int? id)
         {
-            return Details(id, "Edit");
+            return await Details(id, "Edit");
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(EmployeeViewModel employeeVM, [FromRoute] int id)
+        public async Task<IActionResult> Edit(EmployeeViewModel employeeVM, [FromRoute] int id)
         {
             if (id != employeeVM.Id)
             {
@@ -96,7 +97,7 @@ namespace Demo.PresnationLayer.Controllers
                 {
                     var MappedEmployee = _mapper.Map<EmployeeViewModel, Employee>(employeeVM);
                     _unitOfWork.EmployeeRepos.Update(MappedEmployee);
-                    _unitOfWork.Compelete();
+                    await _unitOfWork.CompeleteAsync();
 
                     return RedirectToAction(nameof(Index));
                 }
@@ -110,13 +111,13 @@ namespace Demo.PresnationLayer.Controllers
         }
 
         [HttpGet]
-        public IActionResult Delete(int? id)
+        public async Task<IActionResult> Delete(int? id)
         {
-            return Details(id, "Delete");
+            return await Details(id, "Delete");
         }
 
         [HttpPost]
-        public IActionResult Delete(EmployeeViewModel employeeVM, [FromRoute] int id)
+        public async Task<IActionResult> Delete(EmployeeViewModel employeeVM, [FromRoute] int id)
         {
             if (employeeVM.Id != id)
             {
@@ -126,7 +127,7 @@ namespace Demo.PresnationLayer.Controllers
             {
                 var MapopedEmployee = _mapper.Map<EmployeeViewModel, Employee>(employeeVM);
                 _unitOfWork.EmployeeRepos.Delete(MapopedEmployee);
-                var Result = _unitOfWork.Compelete();
+                var Result = await _unitOfWork.CompeleteAsync();
                 if (Result > 0 && employeeVM.ImageName is not null)
                     DocumentSettings.DeleteFile(employeeVM.ImageName, "Images");
 
