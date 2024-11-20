@@ -84,7 +84,6 @@ namespace Demo.PresnationLayer.Controllers
             return View(model);
         }
 
-
         //Sign Out
 
         public new async Task<IActionResult> SignOut()
@@ -94,6 +93,37 @@ namespace Demo.PresnationLayer.Controllers
         }
 
         //Forget Password
+
+        public IActionResult ForgetPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> SendEmail(ForgetPasswordViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var User = await _userManager.FindByEmailAsync(model.Email);
+                if (User is not null)
+                {
+                    // Send Email
+                    var email = new Email()
+                    {
+                        Subject = "Reset Password",
+                        To = User.Email,
+                        Body = "ResetPasswordLink"
+
+                    };
+                }
+                else
+                {
+                    ModelState.AddModelError(string.Empty, "Email is not Exist!");
+                }
+            }
+            else
+                return View("ForgetPassword", model);
+        }
 
         //Reset Password
     }
