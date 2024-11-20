@@ -9,10 +9,13 @@ namespace Demo.PresnationLayer.Controllers
 	public class AccountController : Controller
 	{
 		private readonly UserManager<ApplicationUser> _userManager;
+		private readonly SignInManager<ApplicationUser> _signInManager;
 
-		public AccountController(UserManager<ApplicationUser> userManager)
+		public AccountController(UserManager<ApplicationUser> userManager,
+			SignInManager<ApplicationUser> signInManager)
 		{
 			_userManager = userManager;
+			_signInManager = signInManager;
 		}
 
 		//Register
@@ -37,7 +40,7 @@ namespace Demo.PresnationLayer.Controllers
 
 				var Result = await _userManager.CreateAsync(User, model.Password);
 				if (Result.Succeeded)
-					return RedirectToAction("Login");
+					return RedirectToAction(nameof(Login));
 				else
 				{
 					foreach (var error in Result.Errors)
@@ -49,6 +52,37 @@ namespace Demo.PresnationLayer.Controllers
 		}
 
 		//Login
+
+		public IActionResult Login()
+		{
+			return View();
+		}
+
+		[HttpPost]
+		public async Task<IActionResult> Login(LoginViewModel model)
+		{
+			if (ModelState.IsValid)
+			{
+				var User = await _userManager.FindByEmailAsync(model.Email);
+				if (User is not null)
+				{
+					var Result = await _userManager.CheckPasswordAsync(User, model.Password);
+
+					if (Result)
+					{
+						var LoginResult = await _signInManager.PasswordSignInAsync(User, model.Password, model.RememberMe, false);
+						if (LoginResult.Succeeded)
+							return RedirectToAction("Index", "Home");
+					}
+					else
+						ModelState.AddModelError(string.Empty, "Password is incorrect");
+				}
+				else
+					ModelState.AddModelError(string.Empty, "Email is Not Exist");
+			}
+
+			return View(model);
+		}
 
 		//Sign Out
 

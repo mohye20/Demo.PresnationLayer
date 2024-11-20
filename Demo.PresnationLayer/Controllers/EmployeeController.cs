@@ -3,6 +3,7 @@ using Demo.BuniessLogicLayer.Interfaces;
 using Demo.DataAcessLayer.Models;
 using Demo.PresnationLayer.Helpers;
 using Demo.PresnationLayer.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,8 @@ using System.Threading.Tasks;
 
 namespace Demo.PresnationLayer.Controllers
 {
+
+    [Authorize]
     public class EmployeeController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;

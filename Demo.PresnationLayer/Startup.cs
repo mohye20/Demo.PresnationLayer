@@ -3,6 +3,7 @@ using Demo.BuniessLogicLayer.Repositories;
 using Demo.DataAcessLayer.Context;
 using Demo.DataAcessLayer.Models;
 using Demo.PresnationLayer.MappingProfiles;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -41,10 +42,15 @@ namespace Demo.PresnationLayer
 				Option.Password.RequireLowercase = true;
 				Option.Password.RequireUppercase = true;
 			})
-				.AddEntityFrameworkStores<MVCAppDbContext>();
+				.AddEntityFrameworkStores<MVCAppDbContext>().AddDefaultTokenProviders();
 			services.AddAutoMapper(M => M.AddProfile(new EmployeeProfile()));
 			//services.AddScoped<UserManager<ApplicationUser>>();
-			services.AddAuthentication();
+			services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+				.AddCookie(Options =>
+				{
+					Options.LoginPath = "Account/Login";
+					Options.AccessDeniedPath = "Home/Error";
+				});
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -62,16 +68,15 @@ namespace Demo.PresnationLayer
 			}
 			app.UseHttpsRedirection();
 			app.UseStaticFiles();
-
 			app.UseRouting();
-
+			app.UseAuthentication();
 			app.UseAuthorization();
 
 			app.UseEndpoints(endpoints =>
 			{
 				endpoints.MapControllerRoute(
 					name: "default",
-					pattern: "{controller=Home}/{action=Index}/{id?}");
+					pattern: "{controller=Account}/{action=Login}/{id?}");
 			});
 		}
 	}

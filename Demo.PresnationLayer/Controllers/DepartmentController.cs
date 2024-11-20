@@ -1,6 +1,7 @@
 ﻿using Demo.BuniessLogicLayer.Interfaces;
 using Demo.BuniessLogicLayer.Repositories;
 using Demo.DataAcessLayer.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
@@ -8,6 +9,8 @@ using System.Threading.Tasks;
 
 namespace Demo.PresnationLayer.Controllers
 {
+
+    [Authorize]
     public class DepartmentController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
