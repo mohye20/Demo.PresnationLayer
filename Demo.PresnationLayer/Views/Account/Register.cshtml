@@ -1,25 +1,46 @@
-﻿@{
-    ViewData["Title"] = "Register";
-    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+﻿@model RegisterViewModel
+@{
+	ViewData["Title"] = "Register";
+	Layout = "~/Views/Shared/_AuthLayout.cshtml";
 }
 
 <div class="main-agileinfo">
 	<div class="agileits-top">
-		<form action="#" method="post">
-			<input class="text" type="text" name="Username" placeholder="Username" required="">
-			<input class="text email" type="email" name="email" placeholder="Email" required="">
-			<input class="text" type="password" name="password" placeholder="Password" required="">
-			<input class="text w3lpass" type="password" name="password" placeholder="Confirm Password" required="">
+		<form asp-action="Register">
+			<input class="text" asp-for="FName" placeholder="Your First Name" required="">
+			<span asp-validation-for="FName" class="text-danger"></span>
+			<br />
+			<input class="text" asp-for="LName" placeholder="Your Last Name" required="">
+			<span asp-validation-for="LName" class="text-danger"></span>
+			<br />
+			<input class="text" asp-for="Email" placeholder="Email Address" required="">
+			<span asp-validation-for="Email" class="text-danger"></span>
+			<br />
+			<input class="text" asp-for="Password" placeholder="Password" required="">
+			<span asp-validation-for="Password" class="text-danger"></span>
+			<br />
+			<input class="text" asp-for="ConfirmPassword" placeholder="ConfirmPassword" required="">
+			<span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+			<br />
+
+
+
+
 			<div class="wthree-text">
 				<label class="anim">
-					<input type="checkbox" class="checkbox" required="">
+					<input asp-for="IsAgree" class="checkbox" required="">
 					<span>I Agree To The Terms & Conditions</span>
 				</label>
 				<div class="clear"> </div>
 			</div>
 			<input type="submit" value="SIGNUP">
 		</form>
-		<p>Don't have an Account? <a href="#"> Login Now!</a></p>
+		<p>Don't have an Account? <a asp-action="Login"> Login Now!</a></p>
 	</div>
 </div>
 
+@section ValidationScriptSection {
+
+	<partial name="_ValidationScriptsPartial" />
+
+}
