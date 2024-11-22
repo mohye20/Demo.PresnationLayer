@@ -1,4 +1,5 @@
 ﻿using Demo.DataAcessLayer.Models;
+using Demo.PresnationLayer.Helpers;
 using Demo.PresnationLayer.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -107,22 +108,32 @@ namespace Demo.PresnationLayer.Controllers
                 var User = await _userManager.FindByEmailAsync(model.Email);
                 if (User is not null)
                 {
+                    // valid for only one Time For This User
+                    var Token =await _userManager.GeneratePasswordResetTokenAsync(User);
+                    //https://localhost:44318/Account/ResetPassword?emai
+                    var ResetPasswordLink = Url.Action("RestPassword", "Account", new { email = User.Email, Token = Token },  Request.Scheme);
                     // Send Email
                     var email = new Email()
                     {
                         Subject = "Reset Password",
                         To = User.Email,
-                        Body = "ResetPasswordLink"
-
+                        Body = ResetPasswordLink
                     };
+
+                    EmailSettings.SendEmail(email);
+                    return RedirectToAction(nameof(CheckYourInbox));
                 }
                 else
                 {
                     ModelState.AddModelError(string.Empty, "Email is not Exist!");
                 }
             }
-            else
-                return View("ForgetPassword", model);
+            return View("ForgetPassword", model);
+        }
+
+        public IActionResult CheckYourInbox()
+        {
+            return View();
         }
 
         //Reset Password

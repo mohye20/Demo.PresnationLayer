@@ -10,7 +10,7 @@ namespace Demo.PresnationLayer.Helpers
         {
             var Client = new SmtpClient("smtp.gmail.com",587);  
             Client.EnableSsl = true;
-            Client.Credentials = new NetworkCredential("mohye20@gmail.com", "fkid tcgt birf ioks");
+            Client.Credentials = new NetworkCredential("mohye20@gmail.com", "fkidtcgtbirfioks");
             Client.Send("mohye20@gmail.com",email.To,email.Subject,email.Body);
 
         }

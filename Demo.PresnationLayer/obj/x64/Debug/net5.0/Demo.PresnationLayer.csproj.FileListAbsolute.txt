@@ -458,3 +458,5 @@ C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\bin\x64\De
 C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\obj\x64\Debug\net5.0\Razor\Views\Shared\_AuthLayout.cshtml.g.cs
 C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\obj\x64\Debug\net5.0\Razor\Views\Account\Register.cshtml.g.cs
 C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\obj\x64\Debug\net5.0\Razor\Views\Account\Login.cshtml.g.cs
+C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\obj\x64\Debug\net5.0\Razor\Views\Account\ForgetPassword.cshtml.g.cs
+C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\obj\x64\Debug\net5.0\Razor\Views\Account\CheckYourInbox.cshtml.g.cs
