@@ -460,3 +460,4 @@ C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\obj\x64\De
 C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\obj\x64\Debug\net5.0\Razor\Views\Account\Login.cshtml.g.cs
 C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\obj\x64\Debug\net5.0\Razor\Views\Account\ForgetPassword.cshtml.g.cs
 C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\obj\x64\Debug\net5.0\Razor\Views\Account\CheckYourInbox.cshtml.g.cs
+C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.PresnationLayer\obj\x64\Debug\net5.0\Razor\Views\Account\ResetPassword.cshtml.g.cs
