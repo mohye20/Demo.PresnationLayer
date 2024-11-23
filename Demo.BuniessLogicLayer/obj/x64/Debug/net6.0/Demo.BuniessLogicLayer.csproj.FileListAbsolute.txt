@@ -1,0 +1,16 @@
+C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.BuniessLogicLayer\bin\x64\Debug\net6.0\Demo.BuniessLogicLayer.deps.json
+C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.BuniessLogicLayer\bin\x64\Debug\net6.0\Demo.BuniessLogicLayer.dll
+C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.BuniessLogicLayer\bin\x64\Debug\net6.0\Demo.BuniessLogicLayer.pdb
+C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.BuniessLogicLayer\bin\x64\Debug\net6.0\Demo.DataAcessLayer.dll
+C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.BuniessLogicLayer\bin\x64\Debug\net6.0\Demo.DataAcessLayer.pdb
+C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.BuniessLogicLayer\obj\x64\Debug\net6.0\Demo.BuniessLogicLayer.csproj.AssemblyReference.cache
+C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.BuniessLogicLayer\obj\x64\Debug\net6.0\Demo.BuniessLogicLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.BuniessLogicLayer\obj\x64\Debug\net6.0\Demo.BuniessLogicLayer.AssemblyInfoInputs.cache
+C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.BuniessLogicLayer\obj\x64\Debug\net6.0\Demo.BuniessLogicLayer.AssemblyInfo.cs
+C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.BuniessLogicLayer\obj\x64\Debug\net6.0\Demo.BuniessLogicLayer.csproj.CoreCompileInputs.cache
+C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.BuniessLogicLayer\obj\x64\Debug\net6.0\Demo.BuniessLogicLayer.sourcelink.json
+C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.BuniessLogicLayer\obj\x64\Debug\net6.0\Demo.Bun.D8DD5048.Up2Date
+C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.BuniessLogicLayer\obj\x64\Debug\net6.0\Demo.BuniessLogicLayer.dll
+C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.BuniessLogicLayer\obj\x64\Debug\net6.0\refint\Demo.BuniessLogicLayer.dll
+C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.BuniessLogicLayer\obj\x64\Debug\net6.0\Demo.BuniessLogicLayer.pdb
+C:\Users\Mohye\source\repos\Demo.PresnationLayer\Demo.BuniessLogicLayer\obj\x64\Debug\net6.0\ref\Demo.BuniessLogicLayer.dll
